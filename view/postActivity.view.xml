@@ -1,0 +1,171 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:f="sap.ui.layout.form"
+	controllerName="com.sap.postActivity.controller.postActivity" height="100%">
+	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" upperCaseAnchorBar="false">
+		<headerTitle>
+			<ObjectPageDynamicHeaderTitle>
+				<snappedTitleOnMobile>
+					<m:Title text="Header Title On Phone"/>
+				</snappedTitleOnMobile>
+			</ObjectPageDynamicHeaderTitle>
+		</headerTitle>
+		<headerContent>
+			<m:Label text="Production order: " class="sapUiSmallMarginTop"/>
+			<m:Input id="productInput" placeholder="Enter product" width="20%" class="sapUiSmallMarginEnd"></m:Input>
+				<m:Label text="Operation: " class="sapUiSmallMarginTop"/>
+			<m:Input id="operationInput" placeholder="Enter operation" width="20%"  class="sapUiLargeMarginEnd"></m:Input>
+				<m:Label width="30%"/>
+			<m:Button text="Go" type="Accept" class="sapUiLargeMarginBegin sapUiSmallMarginBottom"/>
+		</headerContent>
+		<sections>
+			<ObjectPageSection titleUppercase="false" title="my section">
+				<subSections>
+					<ObjectPageSubSection title="Work center" mode="Expanded" id="Section1" titleUppercase="false">
+						<blocks>
+							<ObjectPageLazyLoader stashed="true" id="Section1stashed">
+								<m:VBox class="sapUiSmallMargin">
+									<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+										emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" width="auto" class="sapUxAPObjectPageSubSectionAlignContent">
+										<f:content>
+											<m:Label text="Name"/>
+											<m:Text text="{SupplierName}"/>
+											<m:Label text="Street/No."/>
+											<m:Text text="{Street} {HouseNumber}"/>
+											<m:Label text="ZIP Code/City"/>
+											<m:Text text="{ZIPCode} {City}"/>
+											<m:Label text="Country"/>
+											<m:Text text="{Country}"/>
+										</f:content>
+									</f:SimpleForm>
+								</m:VBox>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection titleUppercase="false" title="my section">
+				<subSections>
+					<ObjectPageSubSection title="Material" mode="Expanded" id="Section2" titleUppercase="false">
+						<blocks>
+							<ObjectPageLazyLoader stashed="true" id="Section2stashed">
+								<m:VBox class="sapUiSmallMargin">
+									<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+										emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" width="auto" class="sapUxAPObjectPageSubSectionAlignContent">
+										<f:content>
+											<m:Label text="Name"/>
+											<m:Text text="{SupplierName}"/>
+											<m:Label text="Street/No."/>
+											<m:Text text="{Street} {HouseNumber}"/>
+											<m:Label text="ZIP Code/City"/>
+											<m:Text text="{ZIPCode} {City}"/>
+											<m:Label text="Country"/>
+											<m:Text text="{Country}"/>
+										</f:content>
+									</f:SimpleForm>
+								</m:VBox>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection titleUppercase="false" title="my section">
+				<subSections>
+					<ObjectPageSubSection title="Quantity" mode="Expanded" id="Section3" titleUppercase="false">
+						<blocks>
+							<ObjectPageLazyLoader stashed="true" id="Section3stashed">
+								<m:VBox class="sapUiSmallMargin">
+									<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+										emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" width="auto" class="sapUxAPObjectPageSubSectionAlignContent">
+										<f:content>
+											<m:Label text="Name"/>
+											<m:Text text="{SupplierName}"/>
+											<m:Label text="Street/No."/>
+											<m:Text text="{Street} {HouseNumber}"/>
+											<m:Label text="ZIP Code/City"/>
+											<m:Text text="{ZIPCode} {City}"/>
+											<m:Label text="Country"/>
+											<m:Text text="{Country}"/>
+										</f:content>
+									</f:SimpleForm>
+								</m:VBox>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection titleUppercase="false" title="my section">
+				<subSections>
+					<ObjectPageSubSection title="Quantity confirmed" mode="Expanded" id="Section4" titleUppercase="false">
+						<blocks>
+							<ObjectPageLazyLoader stashed="true" id="Section4stashed">
+								<m:VBox class="sapUiSmallMargin">
+									<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+										emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" width="auto" class="sapUxAPObjectPageSubSectionAlignContent">
+										<f:content>
+											<m:Label text="Name"/>
+											<m:Text text="{SupplierName}"/>
+											<m:Label text="Street/No."/>
+											<m:Text text="{Street} {HouseNumber}"/>
+											<m:Label text="ZIP Code/City"/>
+											<m:Text text="{ZIPCode} {City}"/>
+											<m:Label text="Country"/>
+											<m:Text text="{Country}"/>
+										</f:content>
+									</f:SimpleForm>
+								</m:VBox>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection titleUppercase="false" title="my section">
+				<subSections>
+					<ObjectPageSubSection title="Activity confirmation" mode="Expanded" id="Section5" titleUppercase="false">
+						<blocks>
+							<ObjectPageLazyLoader stashed="true" id="Section5stashed">
+								<m:VBox class="sapUiSmallMargin">
+									<f:SimpleForm minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+										emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1" width="auto" class="sapUxAPObjectPageSubSectionAlignContent">
+										<f:content>
+											<m:Label text="Name"/>
+											<m:Text text="{SupplierName}"/>
+											<m:Label text="Street/No."/>
+											<m:Text text="{Street} {HouseNumber}"/>
+											<m:Label text="ZIP Code/City"/>
+											<m:Text text="{ZIPCode} {City}"/>
+											<m:Label text="Country"/>
+											<m:Text text="{Country}"/>
+										</f:content>
+									</f:SimpleForm>
+								</m:VBox>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection titleUppercase="false" title="Actions">
+				<subSections>
+					<ObjectPageSubSection title="Quantity declaration" mode="Expanded" id="Section6" titleUppercase="false">
+						<blocks>
+							<ObjectPageLazyLoader stashed="true" id="Section6stashed">
+								<m:VBox class="sapUiSmallMargin">
+									<m:Button text="Quantity declaration" type="Accept"/>
+								</m:VBox>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+				<subSections>
+					<ObjectPageSubSection title="Post activity" mode="Expanded" id="Section7" titleUppercase="false">
+						<blocks>
+							<ObjectPageLazyLoader stashed="true" id="Section7stashed">
+								<m:VBox class="sapUiSmallMargin">
+									<m:Button text="Post activity" type="Accept"/>
+								</m:VBox>
+							</ObjectPageLazyLoader>
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>
