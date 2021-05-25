@@ -1,0 +1,173 @@
+<core:FragmentDefinition
+    backgroundColor="Grey"
+	xmlns="sap.m"
+	xmlns:m="sap.m"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:core="sap.ui.core" >
+	<Dialog
+	    id="idact"
+	    class="sapUiPopupWithPadding pageDialog"
+	    afterClose="dialogAfterClose1"
+		contentHeight="90%"
+		contentWidth="55%"
+		showHeader="false">
+		
+		<Toolbar height="3rem">
+				<m:OverflowToolbar>
+					<m:Title text="{i18n>Text}"/>
+					<m:ToolbarSpacer width="15rem"/>
+				</m:OverflowToolbar>
+			    </Toolbar>
+
+						<HBox>
+						<FlexBox id="idFOrder1" alignItems="Center">
+						<html:div class="icon" style="background-color: Grey"/>	
+						<Label id="idLOrder1" width="8rem" text="{i18n>Order}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idOrder1" width="8rem" class="ColInput" editable="false"/>
+						</FlexBox>
+					
+						<FlexBox id="idFoper1" alignItems="Center">	
+						<Label id="idLOper1" width="8rem" text="{i18n>Operation}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idOper1" width="8rem" class="ColInput" editable="false"/>
+						</FlexBox>
+					    </HBox>
+					    
+					    <HBox>
+						<FlexBox id="idFWork1" alignItems="Center">	
+						<Label id="idLWork1" width="8rem" text="{i18n>Work}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idWork1" width="8rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						
+						<FlexBox id="idFDesc1" alignItems="Center">
+					     <Label id="idLDesc1" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						 <Input id="idDesc1" width="15rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						</HBox>
+						
+						<HBox>
+						<FlexBox id="idFMat1" alignItems="Center">
+						<Label id="idLMat1" width="8rem" text="{i18n>Material}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idMat1" width="8rem" class="ColInput" editable="false"/>
+						</FlexBox>
+					
+						<FlexBox id="idFMatD1" alignItems="Center">	
+						<Label id="idLMatD1" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idMatD1" width="15rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						</HBox>
+						
+						<HBox>
+						<FlexBox id="idFact1" alignItems="Center">
+						<Label id="idLQact1" width="12rem" text="{i18n>Activity}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idQact1" width="8rem" class="ColInput" editable="false"/>
+						</FlexBox>
+					
+					    <FlexBox id="idFATime1" alignItems="Center">	
+						<Label id="idLATime1" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idATime1" width="4rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						
+						<FlexBox id="idFAStat1" alignItems="Center">	
+						<Label id="idLAStat1" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idAStat1" width="6rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						
+						<FlexBox id="idFAUnit1" alignItems="Center">	
+						<Label id="idLAUnit1" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idAUnit1" width="7rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						</HBox>
+					
+						<HBox>
+						
+						<FlexBox id="idFType1" alignItems="Center">
+						<Label id="idLType1" width="8rem" text="{i18n>Type}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Select
+					
+						selectedKey="Interrupt processing" class="ColInput"
+					>
+					<core:Item key="IP" text="Interrupt processing" />
+				</Select>
+						</FlexBox>
+						
+					
+							
+							
+						</HBox>
+						
+					
+						
+						<HBox>
+							<HBox>
+							
+						<FlexBox id="idFNumber1" alignItems="Center">
+						<Label id="idLNumber1" width="10rem" text="{i18n>Number}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idNumber1" width="3rem" class="ColInput" editable="true"/>
+						</FlexBox>
+						</HBox>
+						
+								
+										<VBox>
+								<Label  width="8rem" text="Comments" class="sapUiSmallMarginBegin ColLabel"/>
+									<TextArea value=" " class= "sapUiLargeMarginBegin" rows="4" />
+									</VBox>
+							
+							 
+						
+						</HBox>
+						
+						<HBox>
+						<FlexBox id="idFReason1" alignItems="Center">
+						<Label id="idLReason1" width="10rem" text="{i18n>Reason}" class="sapUiTinyMarginBegin ColLabel"/>
+			 	        <Input id="idReason1" width="80%" class="ColInput" placeholder="{i18n>Select}" valueHelpRequest="onReasonF4" change="onReasonF4Change" showValueHelp="true" value="{GET_REASONModel>/Aufnr}"/>	
+						</FlexBox>
+						</HBox>
+						
+						<HBox>
+						<FlexBox id="idFDate1" alignItems="Center">
+						<Label id="idLDate1" width="8rem" text="{i18n>Date}" class="sapUiTinyMarginBegin ColLabel"/>
+						<DatePicker
+		             	id="idDate1"
+		             	width="9rem"
+		             	valueFormat="dd.MM.yyyy"
+		             	displayFormat="dd.MM.yyyy"
+			            class="sapUiSmallMarginBottom" />
+						</FlexBox>
+						</HBox>
+						
+						<HBox>
+						<FlexBox id="idFTime1" alignItems="Center">
+						<Label id="idLTime1" width="8rem" text="{i18n>Time}" class="sapUiTinyMarginBegin ColLabel"/>
+						<TimePicker
+			            id="idTime1"
+			            width="9rem"
+			            valueFormat="HH:mm:ss"
+				        displayFormat="HH:mm:ss"
+			            class="sapUiSmallMarginBottom" />
+						</FlexBox>
+						
+						
+					    
+					    <!--<FlexBox id="idFAccept1" alignItems="Center">
+			            <ToolbarSpacer/>
+			         	<Label id="idLReject1" width="6rem" class="sapUiTinyMarginBegin ColLabel"/>
+				        <Button id="idReject1" icon="sap-icon://decline" class="ButtonColorBrown" press="fHandleClose1" ariaLabelledBy="actionButtonLabel"/>
+				        <Label id="idLAccept1" width="0.5rem" class="sapUiTinyMarginBegin ColLabel"/>
+				        <Button id="idAccept1" icon="sap-icon://accept" class="ButtonColorGreen" press="fConfirm1" ariaLabelledBy="actionButtonLabel"/>
+				        <ToolbarSpacer/>
+			            </FlexBox>-->
+						</HBox>
+
+<beginButton>
+<Button text="Save" press=".closeDialog"/>
+</beginButton>
+
+<endButton>
+<Button text="Close" press=".closeDialog"/>
+</endButton>
+
+	</Dialog>
+</core:FragmentDefinition>
