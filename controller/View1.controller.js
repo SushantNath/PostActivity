@@ -17,6 +17,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 			date: new Date
 		},
 		onInit: function () {
+			
 			this.oModel = this.getOwnerComponent().getModel();
 			var e = sap.ui.core.UIComponent.getRouterFor(this);
 			e.getRoute("RouteView1").attachMatched(this._onRouteFound, this);
