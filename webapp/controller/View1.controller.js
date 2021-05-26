@@ -174,11 +174,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 				.Contains, t)]);
 			var i = new sap.ui.model.Filter(a, false);
 			var s = e.getSource().getBinding("items");
-			s.filter([i])
+			s.filter([i]);
 		},
 		onReasonF4Confirm: function (e) {
 			
-			sap.ushell.Container.getService("CrossApplicationNavigation").toExternal({
+		/*	sap.ushell.Container.getService("CrossApplicationNavigation").toExternal({
 				target: {
 					semanticObject: "ZpostCons_semobj",
 					action: "display"
@@ -191,10 +191,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
                                         "Unit": "CAR",
 					"mode": "crossNavigation"
 				}
-			});
+			}); */
 			var t = e.getParameter("selectedItem");
 			sap.ui.getCore().byId("idReason1").setValue(t.getTitle());
-			sap.ui.getCore().byId("idReason1").setDescription(t.getInfo())
+			sap.ui.getCore().byId("idReason1").setDescription(t.getInfo());
 		},
 		onReasonF4Change: function () {
 			
