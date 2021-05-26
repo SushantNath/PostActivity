@@ -11,7 +11,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 	"use strict";
 	return e.extend("com.sap.PostActivityactivityConfirmation.controller.View1", {
 		onAfterRendering: function () {
-			gmsgbundle = this.getView().getModel("i18n").getResourceBundle()
+			gmsgbundle = this.getView().getModel("i18n").getResourceBundle();
 		},
 		_data: {
 			date: new Date
@@ -35,9 +35,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 			if (o === true) {
 				var u = d.split("&");
 				var g = u[2].split("=");
-				var n = g[1];
+				var n = "0030";
+				//g[1];
 				var l = u[3].split("=");
-				var V = l[1];
+				var V = "1000082";
+				//l[1];
 				var b = this;
 				var p = {};
 				var e = sap.ui.core.UIComponent.getRouterFor(this);
@@ -61,6 +63,30 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 						b.getView().byId("idQConf").setValue(t.Igmng);
 						var i = t.Igmng;
 						var s = t.Gmein;
+						
+						////////////////////////////////
+						
+		 //var g = b.getView().byId("idQact").getValue();
+		//	var n =b.getView().byId("idATime").getValue();
+		//	var l = b.getView().byId("idAStat").getValue();
+		//	var V = b.getView().byId("idAUnit").getValue();
+		//	var b = b.getView().byId("idNumber").getValue();
+						
+			sap.ui.getCore().byId("idOrder1").setValue(V);
+			sap.ui.getCore().byId("idOper1").setValue(n);
+			sap.ui.getCore().byId("idWork1").setValue(t.Arbpl);
+			sap.ui.getCore().byId("idDesc1").setValue(t.Ktext);
+			sap.ui.getCore().byId("idMat1").setValue(t.Matnr);
+			sap.ui.getCore().byId("idMatD1").setValue(t.Maktx);
+			// sap.ui.getCore().byId("idQact1").setValue(l);
+			// sap.ui.getCore().byId("idATime1").setValue(V);
+			// sap.ui.getCore().byId("idAStat1").setValue(l);
+			// sap.ui.getCore().byId("idAUnit1").setValue(V);
+						
+						//////////////////////////////////
+						
+						
+						
 						if (i === "") {
 							s = ""
 						}
@@ -73,6 +99,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 						b.getView().byId("idQTime").setValue(t.ZquanTime);
 						b.getView().byId("idQStat").setValue(t.ZquanPro);
 						b.getView().byId("idQUnit").setValue(t.ZquanUnit);
+						
+							sap.ui.getCore().byId("idQact1").setValue(t.ZactDate);
+			sap.ui.getCore().byId("idATime1").setValue(t.ZactTime);
+			sap.ui.getCore().byId("idAStat1").setValue(t.ZactPro);
+			sap.ui.getCore().byId("idAUnit1").setValue(t.ZactStart);
+						
 						var r = new sap.ui.model.json.JSONModel(p);
 						sap.ui.getCore().setModel(r, "Idetails");
 						e.navTo("RouteView1")
@@ -252,6 +284,11 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 			}
 		},
 		fActClick: function (e) {
+			
+			//odata fetching logic
+			
+			
+			
 			var t = this.getView();
 			if (!this._oDialog1) {
 				this._oDialog1 = sap.ui.xmlfragment("com.sap.PostActivityactivityConfirmation.fragments.act", this);
@@ -289,16 +326,16 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 				sap.ui.getCore().byId("idNumber1").setVisible(true);
 				sap.ui.getCore().byId("idLNumber1").setVisible(true)
 			} */
-			sap.ui.getCore().byId("idOrder1").setValue(iOrder);
-			sap.ui.getCore().byId("idOper1").setValue(iOper);
-			sap.ui.getCore().byId("idWork1").setValue(s);
-			sap.ui.getCore().byId("idDesc1").setValue(r);
-			sap.ui.getCore().byId("idMat1").setValue(o);
-			sap.ui.getCore().byId("idMatD1").setValue(u);
-			sap.ui.getCore().byId("idQact1").setValue(g);
-			sap.ui.getCore().byId("idATime1").setValue(n);
-			sap.ui.getCore().byId("idAStat1").setValue(l);
-			sap.ui.getCore().byId("idAUnit1").setValue(V);
+			// sap.ui.getCore().byId("idOrder1").setValue(iOrder);
+			// sap.ui.getCore().byId("idOper1").setValue(iOper);
+			// sap.ui.getCore().byId("idWork1").setValue(s);
+			// sap.ui.getCore().byId("idDesc1").setValue(r);
+			// sap.ui.getCore().byId("idMat1").setValue(o);
+			// sap.ui.getCore().byId("idMatD1").setValue(u);
+			// sap.ui.getCore().byId("idQact1").setValue(g);
+			// sap.ui.getCore().byId("idATime1").setValue(n);
+			// sap.ui.getCore().byId("idAStat1").setValue(l);
+			// sap.ui.getCore().byId("idAUnit1").setValue(V);
 		//	sap.ui.getCore().byId("idType1").setValue(p);
 			this._oDialog1.open();
 		},

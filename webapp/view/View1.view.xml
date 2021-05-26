@@ -85,6 +85,11 @@
 						</FlexBox>
 						</HBox>
 						
+							<FlexBox id="idFmode" alignItems="Center">	
+						<Label id="idLmode" width="0.6rem" visible="false" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idmode" width="7rem" class="ColInput" visible="false" editable="false"/>
+						</FlexBox>
+						
 						<HBox visible="false">
 						<FlexBox id="idFLast" alignItems="Center">
 						<Label id="idLLast" width="12rem" text="{i18n>Last}" class="sapUiTinyMarginBegin ColLabel"/>
