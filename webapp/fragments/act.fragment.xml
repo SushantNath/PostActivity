@@ -109,12 +109,6 @@
 						</FlexBox>
 						</HBox>
 						
-								
-										<VBox>
-								<Label  width="8rem" text="Comments" class="sapUiSmallMarginBegin ColLabel"/>
-									<TextArea value=" " class= "sapUiLargeMarginBegin" rows="4" />
-									</VBox>
-							
 							 
 						
 						</HBox>
@@ -148,18 +142,15 @@
 				        displayFormat="HH:mm:ss"
 			            class="sapUiSmallMarginBottom" />
 						</FlexBox>
-						
-						
-					    
-					    <!--<FlexBox id="idFAccept1" alignItems="Center">
-			            <ToolbarSpacer/>
-			         	<Label id="idLReject1" width="6rem" class="sapUiTinyMarginBegin ColLabel"/>
-				        <Button id="idReject1" icon="sap-icon://decline" class="ButtonColorBrown" press="fHandleClose1" ariaLabelledBy="actionButtonLabel"/>
-				        <Label id="idLAccept1" width="0.5rem" class="sapUiTinyMarginBegin ColLabel"/>
-				        <Button id="idAccept1" icon="sap-icon://accept" class="ButtonColorGreen" press="fConfirm1" ariaLabelledBy="actionButtonLabel"/>
-				        <ToolbarSpacer/>
-			            </FlexBox>-->
+					
+							
+					   
 						</HBox>
+						
+							<HBox>
+								<Label  width="8rem" text="Comments" class="sapUiSmallMarginBegin ColLabel"/>
+									<TextArea value=" " class= "sapUiLargeMarginBegin" rows="4" />
+									</HBox>
 
 <beginButton>
 <Button text="Save" press=".closeDialog"/>

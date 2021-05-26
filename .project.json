@@ -7,12 +7,12 @@
     {
       "templateId": "ui5template.basicSAPUI5ApplicationProjectCommon",
       "templateVersion": "1.32.0",
-      "dateTimeStamp": "Tue, 25 May 2021 17:06:29 GMT"
+      "dateTimeStamp": "Wed, 26 May 2021 10:01:13 GMT"
     },
     {
       "templateId": "ui5template.basicSAPUI5ApplicationProject",
       "templateVersion": "1.40.12",
-      "dateTimeStamp": "Tue, 25 May 2021 17:06:29 GMT"
+      "dateTimeStamp": "Wed, 26 May 2021 10:01:13 GMT"
     }
   ],
   "translation": {
@@ -21,14 +21,6 @@
     "defaultLanguage": "en",
     "defaultI18NPropertyFile": "i18n.properties",
     "resourceModelName": "i18n"
-  },
-  "build": {
-    "buildRequired": true,
-    "sourceFolder": "webapp",
-    "targetFolder": "dist",
-    "excludedFolders": [],
-    "excludedFiles": [],
-    "lastBuildDateTime": "Wed, 26 May 2021 07:17:45 GMT"
   },
   "basevalidator": {
     "services": {
@@ -42,8 +34,16 @@
     "blockPush": false,
     "blockPushLevel": "Error"
   },
+  "build": {
+    "buildRequired": true,
+    "sourceFolder": "webapp",
+    "targetFolder": "dist",
+    "excludedFolders": [],
+    "excludedFiles": [],
+    "lastBuildDateTime": "Wed, 26 May 2021 14:38:07 GMT"
+  },
   "deploy": {
     "destination": "DE4",
-    "name": "ZPOSTACTIVITY"
+    "name": "ZACTIVITYCONF"
   }
 }

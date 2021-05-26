@@ -21,7 +21,8 @@
       },
       "description": "SAPUI5 Test Resources"
     },
-    {
+    
+      {
       "path": "/sap/opu/odata",
       "target": {
         "type": "destination",
@@ -30,7 +31,6 @@
       },
       "description": "DE4"
     }
-    
   ],
   "sendWelcomeFileRedirect": true
 }

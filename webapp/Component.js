@@ -1,11 +1,11 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"com/sap/PostActivityactivityConfirmation/model/models"
+	"com/sap/activityConfirmation/model/models"
 ], function(UIComponent, Device, models) {
 	"use strict";
 
-	return UIComponent.extend("com.sap.PostActivityactivityConfirmation.Component", {
+	return UIComponent.extend("com.sap.activityConfirmation.Component", {
 
 		metadata: {
 			manifest: "json"
