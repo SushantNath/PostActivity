@@ -1,0 +1,174 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:wt="com.sap.PostActivityactivityConfirmation.control"
+          controllerName="com.sap.PostActivityactivityConfirmation.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns:l="sap.ui.layout">
+	<Shell id="shell">
+		<App id="Confirmation">
+			<pages>
+				<Page id="page" title="" >
+					<content>
+						<HBox visible="false">
+						<FlexBox id="idFOrder" alignItems="Center">
+						<Label id="idLOrder" width="8rem" text="{i18n>Order}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idOrder" width="8rem" class="ColInput" editable="true"/>
+						</FlexBox>
+					
+						<FlexBox id="idFoper" alignItems="Center">	
+						<Label id="idLOper" width="5rem" text="{i18n>Operation}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idOper" width="5rem" class="ColInput" editable="true"/>
+						</FlexBox>
+					
+						<FlexBox id="idFWork" alignItems="Center">	
+						<Label id="idLWork" width="6rem" text="{i18n>Work}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idWork"  width="7rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						
+						<FlexBox id="idFDesc" alignItems="Center">
+					     <Label id="idLDesc" width="0.6rem"  class="sapUiTinyMarginBegin ColLabel"/>
+						 <Input id="idDesc" width="12rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						</HBox>
+						
+						<HBox visible="false">
+						<FlexBox id="idFMat" alignItems="Center">
+						<Label id="idLMat" width="8rem" text="{i18n>Material}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idMat" width="8rem" class="ColInput" editable="false"/>
+						</FlexBox>
+					
+						<FlexBox id="idFMatD" alignItems="Center">	
+						<Label id="idLMatD" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idMatD" width="25rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						</HBox>
+						
+						<HBox visible="false">
+						<FlexBox id="idFQuan" alignItems="Center">
+						<Label id="idLQuan" width="12rem" text="{i18n>Quantity}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idQuan" width="8rem" class="ColInput" editable="false"/>
+						</FlexBox>
+					
+						<FlexBox id="idFQU" alignItems="Center">	
+						<Label id="idLQU" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idQU" width="4rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						</HBox>
+						
+						<HBox visible="false">
+						<FlexBox id="idFQConf" alignItems="Center">
+						<Label id="idLQConf" width="12rem" text="{i18n>Confirm}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idQConf" width="8rem" class="ColInput" editable="false"/>
+						</FlexBox>
+					
+						<FlexBox id="idFQCon" alignItems="Center">	
+						<Label id="idLQCon" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idQCon" width="4rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						</HBox>
+						
+						<HBox visible="false">
+						<FlexBox id="idFact" alignItems="Center">
+						<Label id="idLQact" width="12rem" text="{i18n>Activity}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idQact" width="8rem" class="ColInput" editable="false"/>
+						</FlexBox>
+					
+					    <FlexBox id="idFATime" alignItems="Center">	
+						<Label id="idLATime" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idATime" width="4rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						
+						<FlexBox id="idFAStat" alignItems="Center">	
+						<Label id="idLAStat" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idAStat" width="6rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						
+						<FlexBox id="idFAUnit" alignItems="Center">	
+						<Label id="idLAUnit" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idAUnit" width="7rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						</HBox>
+						
+						<HBox visible="false">
+						<FlexBox id="idFLast" alignItems="Center">
+						<Label id="idLLast" width="12rem" text="{i18n>Last}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idLast" width="8rem" class="ColInput" editable="false"/>
+						</FlexBox>
+					
+					    <FlexBox id="idFQTime" alignItems="Center">	
+						<Label id="idLQTime" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idQTime" width="4rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						
+						<FlexBox id="idFQStat" alignItems="Center">	
+						<Label id="idLQStat" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idQStat" width="6rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						
+						<FlexBox id="idFQUnit" alignItems="Center">	
+						<Label id="idLQUnit" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idQUnit" width="4rem" class="ColInput" editable="false"/>
+						</FlexBox>
+						
+						<FlexBox id="idFNumber" alignItems="Center">
+						<Input id="idNumber" width="3rem" class="ColInput" editable="true" visible="false"/>
+						</FlexBox>
+						</HBox>
+				
+				        <ToolbarSpacer/>
+						<l:BlockLayout visible="false" id="BlockLayoutParent" background="Default" >
+			            <l:BlockLayoutRow accentCells="Accent1">
+			            <l:BlockLayoutCell class=" detailsCard sapUiResponsiveMargin" >
+						
+						<l:VerticalLayout id="containerLayout" width="100%">
+						
+		                <l:BlockLayout id="BlockLayout" background="Default" >
+			            <l:BlockLayoutRow accentCells="Accent1">
+			            <l:BlockLayoutCell visible="false"
+				           id="idset"
+				        	   title="Set-up">
+						
+						<VBox class="sapUiSmallMargin">
+							<Button id="idStart" text="{i18n>start}" width="10rem" class="ButtonColorBlack" press="fActClick"/>
+							<Button  id="idpart" text="{i18n>part}" width="10rem" class="ButtonColorBlack" press="fActClick"/>
+							<Button  id="idinter" text="{i18n>interrupt}" width="10rem" class="ButtonColorBlack" press="fActClick"/>
+							<Button  id="idfinish" text="{i18n>finish}" width="10rem" class="ButtonColorBlack" press="fActClick"/>
+						
+						</VBox>
+						</l:BlockLayoutCell>
+						
+					<!--	<l:BlockLayoutCell title="Processing" class=" detailsCard ">
+							
+						<VBox class="sapUiSmallMargin">
+							<Button id="idStartP" text="{i18n>startP}" width="12rem" class="ButtonColorBlack" press="fActClick"/>
+							<Button id="idpartF" text="{i18n>partfin}" width="12rem" class="ButtonColorBlack" press="fActClick"/>
+							<Button id="idinterP" text="{i18n>inter}" width="12rem" class="ButtonColorBlack" press="fActClick"/>
+							<Button id="idfinishP" text="{i18n>finfishP}" width="12rem" class="ButtonColorBlack" press="fActClick"/>
+						 
+						</VBox>
+						</l:BlockLayoutCell>-->
+						
+					 <!--   <l:BlockLayoutCell
+					        id="Accent1"
+				        	width="2"
+					        title="Quantity declaration">
+						<VBox class="sapUiSmallMargin">
+						<Button id="idDec" text="{i18n>Dec}" width="12rem" class="ButtonColorBlack" press="fQuantityClick"/>
+						</VBox>
+						</l:BlockLayoutCell>-->
+						</l:BlockLayoutRow>
+						</l:BlockLayout>
+						</l:VerticalLayout>
+						</l:BlockLayoutCell>
+						</l:BlockLayoutRow>
+						</l:BlockLayout>
+						<ToolbarSpacer/>
+						
+						 </content>   
+					<!--	<footer><Toolbar>
+						<ToolbarSpacer/>
+						<Button id="idCancel" text="{i18n>Back}" class="ButtonColorBrown" press="fBack"/>
+						<Button id="idSave" text="{i18n>Enter}" class="ButtonColorGreen" press="fSaveResults"/>
+					    </Toolbar>
+				        </footer>-->
+						</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
