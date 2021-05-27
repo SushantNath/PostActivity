@@ -36,12 +36,12 @@ sap.ui.define([
 						
 					
 						
-			sap.ui.getCore().byId("idOrder1").setValue(V);
-			sap.ui.getCore().byId("idOper1").setValue(n);
-			sap.ui.getCore().byId("idWork1").setValue(oData.Arbpl);
-			sap.ui.getCore().byId("idDesc1").setValue(oData.Ktext);
-			sap.ui.getCore().byId("idMat1").setValue(oData.Matnr);
-			sap.ui.getCore().byId("idMatD1").setValue(oData.Maktx);
+			sap.ui.getCore().byId("idOrder1").setText(V);
+			sap.ui.getCore().byId("idOper1").setText(n);
+			sap.ui.getCore().byId("idWork1").setText(oData.Arbpl);
+			sap.ui.getCore().byId("idDesc1").setText(oData.Ktext);
+			sap.ui.getCore().byId("idMat1").setText(oData.Matnr);
+			sap.ui.getCore().byId("idMatD1").setText(oData.Maktx);
 						
 						
 						if (i === "") {
@@ -49,10 +49,10 @@ sap.ui.define([
 						}
 			
 						
-							sap.ui.getCore().byId("idQact1").setValue(oData.ZactDate);
-			sap.ui.getCore().byId("idATime1").setValue(oData.ZactTime);
-			sap.ui.getCore().byId("idAStat1").setValue(oData.ZactPro);
-			sap.ui.getCore().byId("idAUnit1").setValue(oData.ZactStart);
+							sap.ui.getCore().byId("idQact1").setText(oData.ZactDate);
+			sap.ui.getCore().byId("idATime1").setText(oData.ZactTime);
+			sap.ui.getCore().byId("idAStat1").setText(oData.ZactPro);
+			sap.ui.getCore().byId("idAUnit1").setText(oData.ZactStart);
 						
 					
 					},
@@ -98,7 +98,7 @@ sap.ui.define([
 				onReasonF4: function () {
 			
 	
-			var e = sap.ui.getCore().byId("idOrder1").getValue();
+			var e = sap.ui.getCore().byId("idOrder1").getText();
 			BusyIndicator.show();
 			if (!this._ReasonDialog) {
 				this._ReasonDialog = sap.ui.xmlfragment("com.sap.activityConfirmation.fragments.value", this);
