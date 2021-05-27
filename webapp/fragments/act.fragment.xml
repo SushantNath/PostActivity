@@ -12,23 +12,23 @@
 			<!--<html:div class="icon" style="background-color: Grey"/>	-->
 			<Label id="idLOrder1" design="Bold" width="8rem" text="Production Order" class="sapUiTinyMarginBegin ColLabel"/>
 			<!--<Label id="idLOrder1" width="8rem" text="Hello" class="ColInput" />-->
-			<tnt:InfoLabel id="idOrder1" renderMode="Narrow" colorScheme="7" width="100px" class=" sapUiTinyMarginTop ColInput" displayOnly="true"/>
+			<tnt:InfoLabel id="idOrder1" renderMode="Narrow" colorScheme="9" width="100px" class=" sapUiTinyMarginTop ColInput" displayOnly="true"/>
 		</FlexBox>
 		<FlexBox id="idFoper1" alignItems="Center">
 			<Label id="idLOper1" design="Bold" width="8rem" text="Operation" class="sapUiTinyMarginBegin ColLabel"/>
 			<!--<Label id="idOper1" width="8rem" class="ColInput" />-->
-			<tnt:InfoLabel id="idOper1" colorScheme="7" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
+			<tnt:InfoLabel id="idOper1" colorScheme="9" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
 		</FlexBox>
 		<HBox>
 			<FlexBox id="idFWork1" alignItems="Center">
 				<Label id="idLWork1" design="Bold" width="8rem" text="Work Center" class="sapUiTinyMarginBegin ColLabel"/>
 				<!--<Label id="idWork1" width="8rem" class="ColInput" />-->
-				<tnt:InfoLabel id="idWork1" colorScheme="5" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
+				<tnt:InfoLabel id="idWork1" colorScheme="4" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
 			</FlexBox>
 			<FlexBox id="idFDesc1" alignItems="Center">
 				<Label id="idLDesc1" design="Bold" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
 				<!--<Label id="idDesc1" width="15rem" class="ColInput" />-->
-				<tnt:InfoLabel id="idDesc1" colorScheme="5" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
+				<tnt:InfoLabel id="idDesc1" colorScheme="4" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
 			</FlexBox>
 		</HBox>
 		<HBox>
@@ -40,29 +40,29 @@
 			<FlexBox id="idFMatD1" alignItems="Center">
 				<Label id="idLMatD1" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
 				<!--<Label id="idMatD1" width="15rem" class="ColInput" />-->
-				<tnt:InfoLabel id="idMatD1" colorScheme="5" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
+				<tnt:InfoLabel id="idMatD1" colorScheme="6" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
 			</FlexBox>
 		</HBox>
 		<HBox>
 			<FlexBox id="idFact1" alignItems="Center">
 				<Label id="idLQact1" design="Bold" width="12rem" text="Last activity confirmation" class="sapUiTinyMarginBegin ColLabel"/>
 				<!--<Label id="idQact1" width="8rem" class="ColInput" />-->
-				<tnt:InfoLabel id="idQact1" colorScheme="5" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
+				<tnt:InfoLabel id="idQact1" colorScheme="7" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
 			</FlexBox>
 			<FlexBox id="idFATime1" alignItems="Center">
 				<Label id="idLATime1" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
 				<!--<Label id="idATime1" width="4rem" class="ColInput" />-->
-				<tnt:InfoLabel id="idATime1" colorScheme="5" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
+				<tnt:InfoLabel id="idATime1" colorScheme="7" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
 			</FlexBox>
 			<FlexBox id="idFAStat1" alignItems="Center">
 				<Label id="idLAStat1" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
 				<!--<Label id="idAStat1" width="6rem" class="ColInput" />-->
-				<tnt:InfoLabel id="idAStat1" colorScheme="5" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
+				<tnt:InfoLabel id="idAStat1" colorScheme="7" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
 			</FlexBox>
 			<FlexBox id="idFAUnit1" alignItems="Center">
 				<Label id="idLAUnit1" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
 				<!--<Label id="idAUnit1" width="7rem" class="ColInput" />-->
-				<tnt:InfoLabel id="idAUnit1" colorScheme="5" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
+				<tnt:InfoLabel id="idAUnit1" colorScheme="7" renderMode="Narrow" displayOnly="true" class="sapUiTinyMarginTop"/>
 			</FlexBox>
 		</HBox>
 		

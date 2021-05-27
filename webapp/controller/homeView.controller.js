@@ -7,16 +7,12 @@ sap.ui.define([
 
 	return Controller.extend("com.sap.activityConfirmation.controller.homeView", {
 		
-		
-		
-		
-		
 			onInit: function () {
 				
+					var ParameterData = this.getOwnerComponent().getComponentData();
 				
 				
 				
-
 var processField;
 var startField;
 var that = this;
@@ -157,11 +153,37 @@ var that = this;
 		
 		// var oConfirmModel = new sap.ui.model.json.JSONModel(jQuery.sap.getModulePath("com.sap.activityConfirmation", "/Data.json"));
   //      this.getView().setModel(oConfirmModel, "confirmData");
-		
+		var n;
+		var V;
 			var t = this.getView();
 				
-					var n = "0030";
-						var V = "1000082";
+					if(ParameterData === undefined){
+				
+					 n = "0030";
+						 V = "1000082";
+					}
+					
+					else{
+						
+						
+								if (ParameterData.startupParameters.orderNumber) {
+
+			V = ParameterData.startupParameters.orderNumber[0]; // “Getting the Purchase Order Value passed along with the URL
+
+			
+
+			}
+
+			if (ParameterData.startupParameters.operationNum) {
+
+			n = ParameterData.startupParameters.operationNum[0]; // “Getting the Purchase Order Value passed along with the URL
+
+			
+
+			}
+						
+					}
+					
 				var b = this;
 					var p = {};
 				var I = "/PO_GETSet(Aufnr='" + V + "',Vornr='" + n + "')";
