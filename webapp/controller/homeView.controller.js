@@ -12,10 +12,152 @@ sap.ui.define([
 		
 		
 			onInit: function () {
+				
+				
+				
+				
+
+var processField;
+var startField;
+var that = this;
+//Activity information for for Last Activity blank
+
+	var oActivityBlank = 
+			{
+	       activity: [
+	       	{
+			actId: "R10",
+			activityDes: "Start Setup"
+		},
+		{
+			actId: "B10",
+			activityDes: "Start Processing"
+		}
+	
+	]
+};
+
+
+//Activity information for for Last Activity Setup Start
+
+	var oActivitySetupStart = 
+			{
+	       activity: [
+	      	{
+			actId: "R40",
+			activityDes: "End Setup"
+		}
+	
+	]
+};
+
+//Activity information for for Last Activity Setup End
+
+	var oActivitySetupEnd = 
+			{
+	       activity: [
+	      	{
+			actId: "R10",
+			activityDes: "Start Setup"
+		},
+		{
+			actId: "B10",
+			activityDes: "Start Processing"
+		}
+	
+	]
+};
+
+//Activity information for for Last Activity Processing Start
+
+	var oActivityProcessStart = 
+			{
+	       activity: [
+	     	{
+			actId: "B20",
+			activityDes: "Start Failure"
+		},
+		{
+			actId: "B20",
+			activityDes: "End Failure"
+		},
+		{
+			actId: "B30",
+			activityDes: "Interrupt Processing"
+		}
+	
+	]
+};
+
+//Activity information for for Last Activity Processing Partial
+
+	var oActivityProcessPartial = 
+			{
+	       activity: [
+	     	{
+			actId: "B20",
+			activityDes: "Start Failure"
+		},
+		{
+			actId: "B20",
+			activityDes: "End Failure"
+		},
+		{
+			actId: "B30",
+			activityDes: "Interrupt Processing"
+		},
+		{
+			actId: "B40",
+			activityDes: "End Processing"
+		}
+	
+	]
+};
+
+//Activity information for for Last Activity Processing Interrupt
+
+	var oActivityProcessInterrupt = 
+			{
+	       activity: [
+	      	{
+			actId: "R10",
+			activityDes: "Start Setup"
+		},
+		{
+			actId: "B10",
+			activityDes: "Start Processing"
+		}
+	
+	]
+};
+
+//Activity information for for Last Activity Processing End
+
+	var oActivityProcessEnd = 
+			{
+	       activity: [
+	      {
+			actId: "R40",
+			activityDes: "no further confirmation"
+		}
+	
+	]
+};
+
+
+
+
+			
+				
+				
 			
 			this.oModel = this.getOwnerComponent().getModel();
 		//	var e = sap.ui.core.UIComponent.getRouterFor(this);
 		//	e.getRoute("RouteView1").attachMatched(this._onRouteFound, this);
+		
+		// var oConfirmModel = new sap.ui.model.json.JSONModel(jQuery.sap.getModulePath("com.sap.activityConfirmation", "/Data.json"));
+  //      this.getView().setModel(oConfirmModel, "confirmData");
+		
 			var t = this.getView();
 				
 					var n = "0030";
@@ -35,7 +177,8 @@ sap.ui.define([
 						var s = oData.Gmein;
 						
 					
-						
+				sap.ui.getCore().byId("idDate1").setDateValue(new Date);
+			sap.ui.getCore().byId("idTime1").setDateValue(new Date);			
 			sap.ui.getCore().byId("idOrder1").setText(V);
 			sap.ui.getCore().byId("idOper1").setText(n);
 			sap.ui.getCore().byId("idWork1").setText(oData.Arbpl);
@@ -53,7 +196,60 @@ sap.ui.define([
 			sap.ui.getCore().byId("idATime1").setText(oData.ZactTime);
 			sap.ui.getCore().byId("idAStat1").setText(oData.ZactPro);
 			sap.ui.getCore().byId("idAUnit1").setText(oData.ZactStart);
-						
+		processField = oData.ZactPro;
+		startField = oData.ZactStart;
+		
+				if( processField ==="Processing" && startField==="Start"){
+				
+			// Create an instance of JSON Model using the Employee data available above.
+that.oConfirmModel =  new sap.ui.model.json.JSONModel(oActivityProcessStart);
+
+			} else 	if( processField ==="" && startField===""){
+				
+			// Create an instance of JSON Model using the Employee data available above.
+that.oConfirmModel =  new sap.ui.model.json.JSONModel(oActivityBlank);
+
+			}
+			else 	if( processField ==="Setup" && startField==="Start"){
+				
+			// Create an instance of JSON Model using the Employee data available above.
+that.oConfirmModel =  new sap.ui.model.json.JSONModel(oActivitySetupStart);
+
+			}
+				else 	if( processField ==="Setup" && startField==="End"){
+				
+			// Create an instance of JSON Model using the Employee data available above.
+that.oConfirmModel =  new sap.ui.model.json.JSONModel(oActivitySetupEnd);
+
+			}
+				else 	if( processField ==="Processing" && startField==="Partial"){
+				
+			// Create an instance of JSON Model using the Employee data available above.
+that.oConfirmModel =  new sap.ui.model.json.JSONModel(oActivityProcessPartial);
+
+			}
+				else 	if( processField ==="Processing" && startField==="Interrupt"){
+				
+			// Create an instance of JSON Model using the Employee data available above.
+that.oConfirmModel =  new sap.ui.model.json.JSONModel(oActivityProcessInterrupt);
+
+			}
+			
+				else 	if( processField ==="Processing" && startField==="End"){
+				
+			// Create an instance of JSON Model using the Employee data available above.
+that.oConfirmModel =  new sap.ui.model.json.JSONModel(oActivityProcessEnd);
+
+			}
+			
+	that.getView().setModel(that.oConfirmModel,"confirmData");			
+			var oDDL= sap.ui.getCore().byId("DropDown");
+var oDDLTemplate = new sap.ui.core.Item({
+				key: "{confirmData>actId}",
+				text: "{confirmData>activityDes}"
+			});
+oDDL.setModel(that.oJson);
+oDDL.bindAggregation("items", "confirmData>/activity", oDDLTemplate);
 					
 					},
 					error: function (e) {}
@@ -61,6 +257,8 @@ sap.ui.define([
 		//	}
 			
 			this.fActClick();
+			
+		
 		},
 		
 			fActClick: function (e) {
