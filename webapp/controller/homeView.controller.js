@@ -124,10 +124,10 @@ sap.ui.define([
 			var n;
 			var V;
 			var t = this.getView();
-	   //        n = "0030";
-				// V = "1000082";
+	           n = "0030";
+				V = "1000082";
  
-			if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
+		/*	if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
  console.log("passed order number is undefined ");
 
 				n = "0030";
@@ -149,7 +149,7 @@ sap.ui.define([
 
 				}
 
-			}
+			} */
 
 			var b = this;
 			var p = {};
@@ -276,7 +276,7 @@ sap.ui.define([
 		if(confirmType === "End Failure"){
 			sap.ui.getCore().byId("idReason1").setEnabled(true);
 				sap.ui.getCore().byId("idLReason1").setRequired(true);
-				console.log("Change event for confirmation");
+			
 		}
 		else{
 			sap.ui.getCore().byId("idReason1").setEnabled(false);	
@@ -287,13 +287,13 @@ sap.ui.define([
 		//Validation for "No. of operators" based on "confirmation type"
 		
 			if(confirmType === "Start Setup" || confirmType === "Start Processing"){
-			sap.ui.getCore().byId("idLNumber1").setEnabled(false);
-				sap.ui.getCore().byId("idLReason1").setRequired(false);
+			sap.ui.getCore().byId("idNumber1").setEnabled(false);
+				sap.ui.getCore().byId("idLNumber1").setRequired(false);
 			
 		}
 		else{
-			sap.ui.getCore().byId("idLNumber1").setEnabled(true);
-				sap.ui.getCore().byId("idLReason1").setRequired(true);
+			sap.ui.getCore().byId("idNumber1").setEnabled(true);
+				sap.ui.getCore().byId("idLNumber1").setRequired(true);
 			
 		}
 		
@@ -332,6 +332,90 @@ sap.ui.define([
 			var t = e.getParameter("selectedItem");
 			sap.ui.getCore().byId("idReason1").setValue(t.getTitle());
 			sap.ui.getCore().byId("idReason1").setDescription(t.getInfo());
+		},
+		
+		//code for post activity/save functionality
+			fConfirm1: function (e) {
+		//	if (this._oDialog1) {
+				var t = this;
+				var i = sap.ui.getCore().byId("idOrder1").getText();
+				var s = sap.ui.getCore().byId("idOper1").getText();
+			//	var r = sap.ui.getCore().byId("idType1").getValue();
+				var d = sap.ui.getCore().byId("idDate1").getValue();
+				var o = sap.ui.getCore().byId("idTime1").getValue();
+				var u = sap.ui.getCore().byId("idReason1").getValue();
+				var g = sap.ui.getCore().byId("idNumber1").getValue();
+				var n = "";
+				var l = "";
+				
+				if(d===""|| o=== ""){
+					MessageBox.show("Please fill in all required fileds to proceed");
+					
+				}
+				
+				// if (r === "Partial End Set-up" || r === "Interrupt Set-up" || r === "End Set-up" || r === "Partial End Processing" || r ===
+				// 	"Interrupt Processing" || r === "End Processing") {
+				// 	if (g === "" || g === "0") {
+				// 		MessageBox.error("Please insert a number of operators");
+				// 		return;
+				// 	}
+				// } else {
+				// 	g = "";
+				// }
+				var V = {};
+				var b = sap.ui.core.UIComponent.getRouterFor(this);
+				var p = this.getOwnerComponent().getModel();
+				var I = "/PO_CONFSet(Order='" + i + "',Reason='" + u + "',Number='" + g + "',Operation='" + s + "',Logdate='" +
+					d + "',Logtime='" + o + "',Unit='" + l + "',Yield='" + n + "')";
+		//		var y = gmsgbundle.getText("Message");
+		/*		p.read(I, null, null, false, function (e) {
+					V = e;
+					vmsg = V.GvMsg;
+					a.show(vmsg, {
+						title: y,
+						actions: [sap.m.MessageBox.Action.CLOSE],
+						onClose: function (r) {
+							if (e.GvFlag === "") {
+								t._oDialog1.close();
+								var d = "/PO_GETSet(Aufnr='" + i + "',Vornr='" + s + "')";
+								var o = gmsgbundle.getText("Title");
+								t.oModel.read(d, {
+									success: function (e) {
+										V = e;
+										if (e.Gv_msg1 !== "") {
+											a.error(e.Gv_msg1);
+											return
+										}
+										t.getView().byId("idNumber").setValue(e.ANZMA);
+										t.getView().byId("idWork").setValue(e.Arbpl);
+										t.getView().byId("idDesc").setValue(e.Ktext);
+										t.getView().byId("idMat").setValue(e.Matnr);
+										t.getView().byId("idMatD").setValue(e.Maktx);
+										t.getView().byId("idQuan").setValue(e.Gamng);
+										t.getView().byId("idQU").setValue(e.Gmein);
+										t.getView().byId("idQConf").setValue(e.Igmng);
+										var i = e.Igmng;
+										var s = e.Gmein;
+										if (i === "") {
+											s = ""
+										}
+										t.getView().byId("idQCon").setValue(s);
+										t.getView().byId("idQact").setValue(e.ZactDate);
+										t.getView().byId("idATime").setValue(e.ZactTime);
+										t.getView().byId("idAStat").setValue(e.ZactPro);
+										t.getView().byId("idAUnit").setValue(e.ZactStart);
+										var r = new sap.ui.model.json.JSONModel(V);
+										sap.ui.getCore().setModel(r, "Idetails");
+										b.navTo("RouteView1")
+									},
+									error: function (e) {}
+								})
+							}
+							b.navTo("RouteView1")
+						}
+					})
+				}) */
+		//	}
 		}
 
 	});
