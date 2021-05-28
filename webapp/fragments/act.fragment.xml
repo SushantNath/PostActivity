@@ -12,7 +12,7 @@
 			<!--<html:div class="icon" style="background-color: Grey"/>	-->
 			<Label id="idLOrder1" design="Bold" width="8rem" text="Production Order" class="sapUiTinyMarginBegin ColLabel"/>
 			<!--<Label id="idLOrder1" width="8rem" text="Hello" class="ColInput" />-->
-			<tnt:InfoLabel id="idOrder1" renderMode="Narrow" colorScheme="9" width="100px" class=" sapUiTinyMarginTop ColInput" displayOnly="true"/>
+			<tnt:InfoLabel id="idOrder1"  colorScheme="9" width="100px" class=" sapUiTinyMarginTop ColInput" />
 		</FlexBox>
 		<FlexBox id="idFoper1" alignItems="Center">
 			<Label id="idLOper1" design="Bold" width="8rem" text="Operation" class="sapUiTinyMarginBegin ColLabel"/>
@@ -79,7 +79,7 @@
 					<core:Item key="IP" text="Interrupt processing"/>
 				</Select>-->
 				
-				<ComboBox id="DropDown">
+				<ComboBox id="DropDown" change=".changeConfirmation">
    
 </ComboBox>
 				
@@ -89,7 +89,7 @@
 			<HBox>
 				<FlexBox id="idFNumber1" alignItems="Center">
 					<Label id="idLNumber1" design="Bold" width="10rem" text="Number of Operators" class="sapUiTinyMarginBegin ColLabel"/>
-					<Input id="idNumber1" width="3rem" class="ColInput" editable="true"/>
+					<Input id="idNumber1" width="3rem" class="ColInput" editable="true" enabled="false"/>
 				</FlexBox>
 			</HBox>
 		</HBox>
@@ -97,18 +97,18 @@
 			<FlexBox id="idFReason1" alignItems="Center">
 				<Label id="idLReason1" design="Bold" width="10rem" text="Reason for Deviation" class="sapUiTinyMarginBegin ColLabel"/>
 				<Input id="idReason1" width="80%" class="ColInput" placeholder="{i18n>Select}" valueHelpRequest="onReasonF4" change="onReasonF4Change"
-					showValueHelp="true" value="{GET_REASONModel>/Aufnr}"/>
+					showValueHelp="true" value="{GET_REASONModel>/Aufnr}" enabled="false"/>
 			</FlexBox>
 		</HBox>
 		<HBox>
 			<FlexBox id="idFDate1" alignItems="Center">
-				<Label id="idLDate1" design="Bold" width="8rem" text="Date" class="sapUiTinyMarginBegin ColLabel"/>
+				<Label id="idLDate1" design="Bold" width="8rem" text="Date" class="sapUiTinyMarginBegin ColLabel" required="true"/>
 				<DatePicker id="idDate1" width="9rem" valueFormat="dd.MM.yyyy" displayFormat="dd.MM.yyyy" class="sapUiSmallMarginBottom"/>
 			</FlexBox>
 		</HBox>
 		<HBox>
 			<FlexBox id="idFTime1" alignItems="Center">
-				<Label id="idLTime1" design="Bold" width="8rem" text="Time" class="sapUiTinyMarginBegin ColLabel"/>
+				<Label id="idLTime1" design="Bold" width="8rem" text="Time" class="sapUiTinyMarginBegin ColLabel" required="true"/>
 				<TimePicker id="idTime1" width="9rem" valueFormat="HH:mm:ss" displayFormat="HH:mm:ss" class="sapUiSmallMarginBottom"/>
 			</FlexBox>
 		</HBox>

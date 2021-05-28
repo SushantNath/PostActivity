@@ -124,16 +124,22 @@ sap.ui.define([
 			var n;
 			var V;
 			var t = this.getView();
-
-			if (ParameterData === undefined) {
+	   //        n = "0030";
+				// V = "1000082";
+ 
+			if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
+ console.log("passed order number is undefined ");
 
 				n = "0030";
 				V = "1000082";
 			} else {
 
-				if (ParameterData.startupParameters.orderNumber) {
+ console.log("passed order number is ", ParameterData.startupParameters.orderType);
+ console.log("passed operation number is ", ParameterData.startupParameters.operationNum);
 
-					V = ParameterData.startupParameters.orderNumber[0]; // “Getting the Purchase Order Value passed along with the URL
+				if (ParameterData.startupParameters.orderType) {
+
+					V = ParameterData.startupParameters.orderType[0]; // “Getting the Purchase Order Value passed along with the URL
 
 				}
 
@@ -255,12 +261,42 @@ sap.ui.define([
 
 			sap.ushell.Container.getService("CrossApplicationNavigation").toExternal({
 				target: {
-					semanticObject: "ZPTM_12748",
+					semanticObject: "ZPTM",
 					action: "display"
 				}
 
 			});
 
+		},
+		
+		//code to handle change event for Confirmation type.
+		changeConfirmation: function() {
+		var confirmType	= sap.ui.getCore().byId("DropDown")._getSelectedItemText();
+		// validation for "reason for deviation" based on "confirmation type"
+		if(confirmType === "End Failure"){
+			sap.ui.getCore().byId("idReason1").setEnabled(true);
+				sap.ui.getCore().byId("idLReason1").setRequired(true);
+				console.log("Change event for confirmation");
+		}
+		else{
+			sap.ui.getCore().byId("idReason1").setEnabled(false);	
+				sap.ui.getCore().byId("idLReason1").setRequired(false);
+			
+		}
+		
+		//Validation for "No. of operators" based on "confirmation type"
+		
+			if(confirmType === "Start Setup" || confirmType === "Start Processing"){
+			sap.ui.getCore().byId("idLNumber1").setEnabled(false);
+				sap.ui.getCore().byId("idLReason1").setRequired(false);
+			
+		}
+		else{
+			sap.ui.getCore().byId("idLNumber1").setEnabled(true);
+				sap.ui.getCore().byId("idLReason1").setRequired(true);
+			
+		}
+		
 		},
 
 		//  code to get value help "Reason for deviation"
