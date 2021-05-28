@@ -345,11 +345,26 @@ sap.ui.define([
 				var o = sap.ui.getCore().byId("idTime1").getValue();
 				var u = sap.ui.getCore().byId("idReason1").getValue();
 				var g = sap.ui.getCore().byId("idNumber1").getValue();
+				var reasonValue=sap.ui.getCore().byId("idReason1").getValue();
+				var reasonRequire=sap.ui.getCore().byId("idLReason1").getRequired();
+				var operatorValue= sap.ui.getCore().byId("idNumber1").getValue();
+				var operatorRequire = 	sap.ui.getCore().byId("idLNumber1").getRequired();
+				sap.ui.getCore().byId("idLNumber1").setRequired(true);
 				var n = "";
 				var l = "";
 				
 				if(d===""|| o=== ""){
-					MessageBox.show("Please fill in all required fileds to proceed");
+					MessageBox.error("Please fill in all required fileds to proceed");
+					
+				}
+				
+					if(reasonValue==="" && reasonRequire=== true){
+					MessageBox.error("Please fill in all required fileds to proceed");
+					
+				}
+				
+					if(operatorValue==="" && operatorRequire=== true){
+					MessageBox.error("Please fill in all required fileds to proceed");
 					
 				}
 				
