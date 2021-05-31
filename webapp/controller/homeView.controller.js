@@ -1,3 +1,5 @@
+var gmsgbundle;
+
 sap.ui.define([
 	"sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/MessageBox", "sap/ui/core/BusyIndicator",
 	"sap/ui/model/Filter", "sap/ui/model/json/JSONModel",
@@ -10,6 +12,7 @@ sap.ui.define([
 		onInit: function() {
 
 			var ParameterData = this.getOwnerComponent().getComponentData();
+				gmsgbundle = this.getOwnerComponent().getModel("i18n");
 
 			var processField;
 			var startField;
@@ -338,20 +341,29 @@ sap.ui.define([
 			fConfirm1: function (e) {
 		//	if (this._oDialog1) {
 				var t = this;
-				var i = sap.ui.getCore().byId("idOrder1").getText();
+			/*	var i = sap.ui.getCore().byId("idOrder1").getText();
 				var s = sap.ui.getCore().byId("idOper1").getText();
 			//	var r = sap.ui.getCore().byId("idType1").getValue();
 				var d = sap.ui.getCore().byId("idDate1").getValue();
 				var o = sap.ui.getCore().byId("idTime1").getValue();
 				var u = sap.ui.getCore().byId("idReason1").getValue();
-				var g = sap.ui.getCore().byId("idNumber1").getValue();
+				var g = sap.ui.getCore().byId("idNumber1").getValue(); */
+				
+				var i = "1000082";
+				var s ="0030";
+				var d = "31.05.2021";
+				var o = "20:44:19";
+				var g = "1";
+				var u= "";
+					var n = "";
+				var l = "";
+				var r = "Start%20of%20Failure";
 				var reasonValue=sap.ui.getCore().byId("idReason1").getValue();
 				var reasonRequire=sap.ui.getCore().byId("idLReason1").getRequired();
 				var operatorValue= sap.ui.getCore().byId("idNumber1").getValue();
 				var operatorRequire = 	sap.ui.getCore().byId("idLNumber1").getRequired();
 				sap.ui.getCore().byId("idLNumber1").setRequired(true);
-				var n = "";
-				var l = "";
+			
 				
 				if(d===""|| o=== ""){
 					MessageBox.error("Please fill in all required fileds to proceed");
@@ -378,15 +390,17 @@ sap.ui.define([
 				// 	g = "";
 				// }
 				var V = {};
+				var vmsg;
 				var b = sap.ui.core.UIComponent.getRouterFor(this);
 				var p = this.getOwnerComponent().getModel();
-				var I = "/PO_CONFSet(Order='" + i + "',Reason='" + u + "',Number='" + g + "',Operation='" + s + "',Logdate='" +
+					var y = ("Message");
+			var I = "/PO_CONFSet(Order='" + i + "',Reason='" + u + "',Number='" + g + "',Operation='" + s + "',Record='" + r + "',Logdate='" +
 					d + "',Logtime='" + o + "',Unit='" + l + "',Yield='" + n + "')";
 		//		var y = gmsgbundle.getText("Message");
-		/*		p.read(I, null, null, false, function (e) {
+				p.read(I, null, null, false, function (e) {
 					V = e;
 					vmsg = V.GvMsg;
-					a.show(vmsg, {
+					MessageBox.show(vmsg, {
 						title: y,
 						actions: [sap.m.MessageBox.Action.CLOSE],
 						onClose: function (r) {
@@ -398,8 +412,8 @@ sap.ui.define([
 									success: function (e) {
 										V = e;
 										if (e.Gv_msg1 !== "") {
-											a.error(e.Gv_msg1);
-											return
+											MessageBox.error(e.Gv_msg1);
+											return;
 										}
 										t.getView().byId("idNumber").setValue(e.ANZMA);
 										t.getView().byId("idWork").setValue(e.Arbpl);
@@ -412,7 +426,7 @@ sap.ui.define([
 										var i = e.Igmng;
 										var s = e.Gmein;
 										if (i === "") {
-											s = ""
+											s = "";
 										}
 										t.getView().byId("idQCon").setValue(s);
 										t.getView().byId("idQact").setValue(e.ZactDate);
@@ -421,15 +435,17 @@ sap.ui.define([
 										t.getView().byId("idAUnit").setValue(e.ZactStart);
 										var r = new sap.ui.model.json.JSONModel(V);
 										sap.ui.getCore().setModel(r, "Idetails");
-										b.navTo("RouteView1")
+									
 									},
-									error: function (e) {}
-								})
+									error: function (e) {
+										
+									}
+								});
 							}
-							b.navTo("RouteView1")
+						//	b.navTo("RouteView1");
 						}
-					})
-				}) */
+					});
+				}) ;
 		//	}
 		}
 
