@@ -130,7 +130,7 @@ sap.ui.define([
 	           n = "0030";
 				V = "1000082";
  
-		/*	if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
+	/*		if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
  console.log("passed order number is undefined ");
 
 				n = "0030";
@@ -152,7 +152,7 @@ sap.ui.define([
 
 				}
 
-			} */
+			}  */
 
 			var b = this;
 			var p = {};
@@ -339,72 +339,77 @@ sap.ui.define([
 		
 		//code for post activity/save functionality
 			fConfirm1: function (e) {
-		//	if (this._oDialog1) {
+	
 				var t = this;
-			/*	var i = sap.ui.getCore().byId("idOrder1").getText();
-				var s = sap.ui.getCore().byId("idOper1").getText();
-			//	var r = sap.ui.getCore().byId("idType1").getValue();
-				var d = sap.ui.getCore().byId("idDate1").getValue();
-				var o = sap.ui.getCore().byId("idTime1").getValue();
-				var u = sap.ui.getCore().byId("idReason1").getValue();
-				var g = sap.ui.getCore().byId("idNumber1").getValue(); */
+				var i = sap.ui.getCore().byId("idOrder1").getText(); //Production order
+				var s = sap.ui.getCore().byId("idOper1").getText(); //Operation
+				var r = sap.ui.getCore().byId("DropDown").getSelectedKey(); //Confirmation type
+			 	var d = sap.ui.getCore().byId("idDate1").getValue();//Date
+				var logTime = sap.ui.getCore().byId("idTime1").getValue();
+				var logtime1= (logTime.replace(":", ""));
+				var o= (logtime1.replace(":", "")); //time
+			 	var g = sap.ui.getCore().byId("idNumber1").getValue(); //Number of operators
+			 	var comments = sap.ui.getCore().byId("commentsText").getValue(); // Comments
+			     var n = "";//Yield
+				 var l = "";  //unit
 				
-				var i = "1000082";
-				var s ="0030";
-				var d = "31.05.2021";
-				var o = "20:44:19";
-				var g = "1";
-				var u= "";
-					var n = "";
-				var l = "";
-				var r = "Start%20of%20Failure";
+				// var i = "1000082";
+				// var s ="0030";
+			//	var d = "31.05.2021";
+				// var logTime = "16:00:10";
+				// var logtime1= (logTime.replace(":", ""));
+				// var o= (logtime1.replace(":", ""));
+			//	var g = "1";
+			//	var u= "";
+				// 	var n = "";
+				// var l = "";
+			//	var comments = "hello";
+			//	var r = "B20";
 				var reasonValue=sap.ui.getCore().byId("idReason1").getValue();
 				var reasonRequire=sap.ui.getCore().byId("idLReason1").getRequired();
 				var operatorValue= sap.ui.getCore().byId("idNumber1").getValue();
 				var operatorRequire = 	sap.ui.getCore().byId("idLNumber1").getRequired();
 				sap.ui.getCore().byId("idLNumber1").setRequired(true);
-			
+				var u = reasonValue;//Reason for deviation
 				
-				if(d===""|| o=== ""){
+				if(d===""|| o=== ""){ //date and time
 					MessageBox.error("Please fill in all required fileds to proceed");
+					return;
 					
 				}
 				
-					if(reasonValue==="" && reasonRequire=== true){
+					if(reasonValue==="" && reasonRequire=== true){ //Reason label and field
 					MessageBox.error("Please fill in all required fileds to proceed");
-					
+						return;
 				}
 				
-					if(operatorValue==="" && operatorRequire=== true){
+					if(operatorValue==="" && operatorRequire=== true){ //No. of operators
 					MessageBox.error("Please fill in all required fileds to proceed");
-					
+						return;
 				}
-				
-				// if (r === "Partial End Set-up" || r === "Interrupt Set-up" || r === "End Set-up" || r === "Partial End Processing" || r ===
-				// 	"Interrupt Processing" || r === "End Processing") {
-				// 	if (g === "" || g === "0") {
-				// 		MessageBox.error("Please insert a number of operators");
-				// 		return;
-				// 	}
-				// } else {
-				// 	g = "";
-				// }
+		
 				var V = {};
 				var vmsg;
 				var b = sap.ui.core.UIComponent.getRouterFor(this);
 				var p = this.getOwnerComponent().getModel();
 					var y = ("Message");
 			var I = "/PO_CONFSet(Order='" + i + "',Reason='" + u + "',Number='" + g + "',Operation='" + s + "',Record='" + r + "',Logdate='" +
-					d + "',Logtime='" + o + "',Unit='" + l + "',Yield='" + n + "')";
+					d + "',Logtime='" + o + "',Unit='" + l + "',Yield='" + n + "',Comments='" + comments + "')";
 		//		var y = gmsgbundle.getText("Message");
-				p.read(I, null, null, false, function (e) {
-					V = e;
-					vmsg = V.GvMsg;
+				p.read(I, {
+				//		p.read(I, null, null, false, function (e) {
+					
+						success: function (oData, Response) {
+
+					
+					console.log("Inside warehouse success function", oData.results);
+				//	V = e;
+					vmsg = Response.data.GvMsg;
 					MessageBox.show(vmsg, {
 						title: y,
 						actions: [sap.m.MessageBox.Action.CLOSE],
 						onClose: function (r) {
-							if (e.GvFlag === "") {
+							if (Response.data.GvFlag === "") {
 								t._oDialog1.close();
 								var d = "/PO_GETSet(Aufnr='" + i + "',Vornr='" + s + "')";
 								var o = gmsgbundle.getText("Title");
@@ -415,7 +420,7 @@ sap.ui.define([
 											MessageBox.error(e.Gv_msg1);
 											return;
 										}
-										t.getView().byId("idNumber").setValue(e.ANZMA);
+								/*		t.getView().byId("idNumber").setValue(e.ANZMA);
 										t.getView().byId("idWork").setValue(e.Arbpl);
 										t.getView().byId("idDesc").setValue(e.Ktext);
 										t.getView().byId("idMat").setValue(e.Matnr);
@@ -432,19 +437,27 @@ sap.ui.define([
 										t.getView().byId("idQact").setValue(e.ZactDate);
 										t.getView().byId("idATime").setValue(e.ZactTime);
 										t.getView().byId("idAStat").setValue(e.ZactPro);
-										t.getView().byId("idAUnit").setValue(e.ZactStart);
+										t.getView().byId("idAUnit").setValue(e.ZactStart); */
 										var r = new sap.ui.model.json.JSONModel(V);
 										sap.ui.getCore().setModel(r, "Idetails");
 									
 									},
 									error: function (e) {
-										
+											console.log("Inside Error function  second");
 									}
 								});
 							}
-						//	b.navTo("RouteView1");
-						}
+					
+						} 
 					});
+				},
+
+				error: function (oData, Response, oError) {
+					console.log("Inside Error function first");
+					MessageBox.show("Error in fetching records");                             
+				}
+					
+				
 				}) ;
 		//	}
 		}

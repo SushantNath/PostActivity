@@ -114,7 +114,7 @@
 		</HBox>
 		<HBox>
 			<Label width="8rem" design="Bold" text="Comments" class="sapUiSmallMarginBegin ColLabel"/>
-			<TextArea value=" " rows="4"/>
+			<TextArea id ="commentsText" value=" " rows="4"/>
 		</HBox>
 		<beginButton>
 			<Button text="Save" press=".fConfirm1"/>
