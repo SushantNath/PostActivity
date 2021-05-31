@@ -352,7 +352,6 @@ sap.ui.define([
 			 	var comments = sap.ui.getCore().byId("commentsText").getValue(); // Comments
 			     var n = "";//Yield
 				 var l = "";  //unit
-				
 				// var i = "1000082";
 				// var s ="0030";
 			//	var d = "31.05.2021";
