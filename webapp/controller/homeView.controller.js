@@ -299,6 +299,12 @@ sap.ui.define([
 				sap.ui.getCore().byId("idLNumber1").setRequired(true);
 			
 		}
+		//set values to balnk on change of confirmation type
+		sap.ui.getCore().byId("idReason1").setValue("");
+		sap.ui.getCore().byId("idReason1").setDescription("");
+		sap.ui.getCore().byId("commentsText").setValue("");	
+		sap.ui.getCore().byId("idNumber1").setValue("");
+		
 		
 		},
 
@@ -458,7 +464,6 @@ sap.ui.define([
 					
 				
 				}) ;
-		//	}
 		}
 
 	});
