@@ -112,7 +112,7 @@ sap.ui.define([
 			var oActivityProcessEnd = {
 				activity: [{
 						actId: "R40",
-						activityDes: "no further confirmation"
+						activityDes: "No further confirmation"
 					}
 
 				]
@@ -130,7 +130,7 @@ sap.ui.define([
 	           n = "0030";
 				V = "1000082";
  
-	/*		if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
+		/*	if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
  console.log("passed order number is undefined ");
 
 				n = "0030";
@@ -170,21 +170,21 @@ sap.ui.define([
 
 					sap.ui.getCore().byId("idDate1").setDateValue(new Date);
 					sap.ui.getCore().byId("idTime1").setDateValue(new Date);
-					sap.ui.getCore().byId("idOrder1").setText(V);
-					sap.ui.getCore().byId("idOper1").setText(n);
-					sap.ui.getCore().byId("idWork1").setText(oData.Arbpl);
-					sap.ui.getCore().byId("idDesc1").setText(oData.Ktext);
-					sap.ui.getCore().byId("idMat1").setText(oData.Matnr);
-					sap.ui.getCore().byId("idMatD1").setText(oData.Maktx);
+					sap.ui.getCore().byId("idOrder1").setValue(V);
+					sap.ui.getCore().byId("idOper1").setValue(n);
+					sap.ui.getCore().byId("idWork1").setValue(oData.Arbpl);
+					sap.ui.getCore().byId("idDesc1").setValue(oData.Ktext);
+					sap.ui.getCore().byId("idMat1").setValue(oData.Matnr);
+					sap.ui.getCore().byId("idMatD1").setValue(oData.Maktx);
 
 					if (i === "") {
 						s = "";
 					}
 
-					sap.ui.getCore().byId("idQact1").setText(oData.ZactDate);
-					sap.ui.getCore().byId("idATime1").setText(oData.ZactTime);
-					sap.ui.getCore().byId("idAStat1").setText(oData.ZactPro);
-					sap.ui.getCore().byId("idAUnit1").setText(oData.ZactStart);
+					sap.ui.getCore().byId("idQact1").setValue(oData.ZactDate);
+					sap.ui.getCore().byId("idATime1").setValue(oData.ZactTime);
+					sap.ui.getCore().byId("idAStat1").setValue(oData.ZactPro);
+					sap.ui.getCore().byId("idAUnit1").setValue(oData.ZactStart);
 					processField = oData.ZactPro;
 					startField = oData.ZactStart;
 
@@ -220,10 +220,10 @@ sap.ui.define([
 
 					} else if (processField === "Processing" && startField === "End") {
 
-						// Create an instance of JSON Model using the Employee data available above.
+					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessEnd);
 
-					}
+					} 
 
 					that.getView().setModel(that.oConfirmModel, "confirmData");
 					var oDDL = sap.ui.getCore().byId("DropDown");
@@ -311,7 +311,7 @@ sap.ui.define([
 		//  code to get value help "Reason for deviation"
 		onReasonF4: function() {
 
-			var e = sap.ui.getCore().byId("idOrder1").getText();
+			var e = sap.ui.getCore().byId("idOrder1").getValue();
 			BusyIndicator.show();
 			if (!this._ReasonDialog) {
 				this._ReasonDialog = sap.ui.xmlfragment("com.sap.activityConfirmation.fragments.value", this);
@@ -347,8 +347,8 @@ sap.ui.define([
 			fConfirm1: function (e) {
 	
 				var t = this;
-				var i = sap.ui.getCore().byId("idOrder1").getText(); //Production order
-				var s = sap.ui.getCore().byId("idOper1").getText(); //Operation
+				var i = sap.ui.getCore().byId("idOrder1").getValue(); //Production order
+				var s = sap.ui.getCore().byId("idOper1").getValue(); //Operation
 				var r = sap.ui.getCore().byId("DropDown").getSelectedKey(); //Confirmation type
 			 	var d = sap.ui.getCore().byId("idDate1").getValue();//Date
 				var logTime = sap.ui.getCore().byId("idTime1").getValue();
@@ -374,7 +374,7 @@ sap.ui.define([
 				var reasonRequire=sap.ui.getCore().byId("idLReason1").getRequired();
 				var operatorValue= sap.ui.getCore().byId("idNumber1").getValue();
 				var operatorRequire = 	sap.ui.getCore().byId("idLNumber1").getRequired();
-				sap.ui.getCore().byId("idLNumber1").setRequired(true);
+			//	sap.ui.getCore().byId("idLNumber1").setRequired(true);
 				var u = reasonValue;//Reason for deviation
 				
 				if(d===""|| o=== ""){ //date and time
@@ -425,24 +425,19 @@ sap.ui.define([
 											MessageBox.error(e.Gv_msg1);
 											return;
 										}
-								/*		t.getView().byId("idNumber").setValue(e.ANZMA);
-										t.getView().byId("idWork").setValue(e.Arbpl);
-										t.getView().byId("idDesc").setValue(e.Ktext);
-										t.getView().byId("idMat").setValue(e.Matnr);
-										t.getView().byId("idMatD").setValue(e.Maktx);
-										t.getView().byId("idQuan").setValue(e.Gamng);
-										t.getView().byId("idQU").setValue(e.Gmein);
-										t.getView().byId("idQConf").setValue(e.Igmng);
-										var i = e.Igmng;
-										var s = e.Gmein;
-										if (i === "") {
-											s = "";
+										
+										else{
+											
+											
+			sap.ushell.Container.getService("CrossApplicationNavigation").toExternal({
+				target: {
+					semanticObject: "ZPTM",
+					action: "display"
+				}
+
+			});
 										}
-										t.getView().byId("idQCon").setValue(s);
-										t.getView().byId("idQact").setValue(e.ZactDate);
-										t.getView().byId("idATime").setValue(e.ZactTime);
-										t.getView().byId("idAStat").setValue(e.ZactPro);
-										t.getView().byId("idAUnit").setValue(e.ZactStart); */
+							
 										var r = new sap.ui.model.json.JSONModel(V);
 										sap.ui.getCore().setModel(r, "Idetails");
 									
