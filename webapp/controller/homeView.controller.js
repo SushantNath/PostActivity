@@ -127,10 +127,10 @@ sap.ui.define([
 			var n;
 			var V;
 			var t = this.getView();
-	           n = "0030";
-				V = "1000082";
+	   //        n = "0030";
+				// V = "1000082";
  
-		/*	if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
+			if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
  console.log("passed order number is undefined ");
 
 				n = "0030";
@@ -152,7 +152,7 @@ sap.ui.define([
 
 				}
 
-			}  */
+			}  
 
 			var b = this;
 			var p = {};
@@ -392,7 +392,11 @@ sap.ui.define([
 					MessageBox.error("Please fill in all required fileds to proceed");
 						return;
 				}
-		
+		        	if (g > "3" ) {
+						MessageBox.error("The number of operators should be maximum 3. Please check your entry before proceeding");
+						return;
+					}
+		     
 				var V = {};
 				var vmsg;
 				var b = sap.ui.core.UIComponent.getRouterFor(this);
@@ -414,21 +418,6 @@ sap.ui.define([
 						title: y,
 						actions: [sap.m.MessageBox.Action.CLOSE],
 						onClose: function (r) {
-							if (Response.data.GvFlag === "") {
-								t._oDialog1.close();
-								var d = "/PO_GETSet(Aufnr='" + i + "',Vornr='" + s + "')";
-								var o = gmsgbundle.getText("Title");
-								t.oModel.read(d, {
-									success: function (e) {
-										V = e;
-										if (e.Gv_msg1 !== "") {
-											MessageBox.error(e.Gv_msg1);
-											return;
-										}
-										
-										else{
-											
-											
 			sap.ushell.Container.getService("CrossApplicationNavigation").toExternal({
 				target: {
 					semanticObject: "ZPTM",
@@ -436,17 +425,6 @@ sap.ui.define([
 				}
 
 			});
-										}
-							
-										var r = new sap.ui.model.json.JSONModel(V);
-										sap.ui.getCore().setModel(r, "Idetails");
-									
-									},
-									error: function (e) {
-											console.log("Inside Error function  second");
-									}
-								});
-							}
 					
 						} 
 					});
