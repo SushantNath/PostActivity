@@ -16,6 +16,8 @@ sap.ui.define([
 
 			var processField;
 			var startField;
+			var reasonField;
+			var confirmationField;
 			var that = this;
 			//Activity information for for Last Activity blank
 
@@ -23,6 +25,7 @@ sap.ui.define([
 				activity: [{
 						actId: "R10",
 						activityDes: "Start Setup"
+						
 					}, {
 						actId: "B10",
 						activityDes: "Start Processing"
@@ -60,12 +63,24 @@ sap.ui.define([
 
 			var oActivityProcessStart = {
 				activity: [{
-						actId: "B20",
-						activityDes: "Start Failure"
-					}, {
+					 
 						actId: "B20",
 						activityDes: "End Failure"
-					}, {
+					}
+
+				]
+			};
+			
+				//Activity information for for Last Activity Processing Start blank
+
+			var oActivityProcessStartBlank = {
+				activity: [{
+					 
+						actId: "B20",
+						activityDes: "Start Failure"
+					},
+					{
+					 
 						actId: "B30",
 						activityDes: "Interrupt Processing"
 					}
@@ -73,16 +88,13 @@ sap.ui.define([
 				]
 			};
 
-			//Activity information for for Last Activity Processing Partial
+			//Activity information for for Last Activity Processing Partial Blank
 
-			var oActivityProcessPartial = {
+			var oActivityProcessPartialBlank = {
 				activity: [{
 						actId: "B20",
 						activityDes: "Start Failure"
-					}, {
-						actId: "B20",
-						activityDes: "End Failure"
-					}, {
+					},  {
 						actId: "B30",
 						activityDes: "Interrupt Processing"
 					}, {
@@ -92,6 +104,22 @@ sap.ui.define([
 
 				]
 			};
+			
+				//Activity information for for Last Activity Processing Partial 
+
+			var oActivityProcessPartial = {
+				activity: [	{
+						actId: "B20",
+						activityDes: "End Failure"
+					}
+
+				]
+			};
+			
+			
+			
+			
+		
 
 			//Activity information for for Last Activity Processing Interrupt
 
@@ -127,10 +155,10 @@ sap.ui.define([
 			var n;
 			var V;
 			var t = this.getView();
-	   //        n = "0030";
-				// V = "1000082";
+	           n = "0030";
+				V = "1000082";
  
-			if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
+	/*		if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
  console.log("passed order number is undefined ");
 
 				n = "0030";
@@ -152,7 +180,7 @@ sap.ui.define([
 
 				}
 
-			}  
+			}  */
 
 			var b = this;
 			var p = {};
@@ -185,43 +213,63 @@ sap.ui.define([
 					sap.ui.getCore().byId("idATime1").setValue(oData.ZactTime);
 					sap.ui.getCore().byId("idAStat1").setValue(oData.ZactPro);
 					sap.ui.getCore().byId("idAUnit1").setValue(oData.ZactStart);
+					sap.ui.getCore().byId("idConf").setText(oData.Satza);
+					sap.ui.getCore().byId("idReason").setText(oData.Grund);
 					processField = oData.ZactPro;
 					startField = oData.ZactStart;
+					reasonField= oData.Grund;
+					confirmationField= oData.Satza;
+					
+					console.log("Reason and confirmation field are", reasonField,confirmationField);
 
-					if (processField === "Processing" && startField === "Start") {
+					if (reasonField === "0000" && confirmationField === "B10") { //Process start
 
-						// Create an instance of JSON Model using the Employee data available above.
+					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessStart);
 
-					} else if (processField === "" && startField === "") {
+					} else if (reasonField === "N/A" && confirmationField === "N/A") { //Blank values
 
-						// Create an instance of JSON Model using the Employee data available above.
+				
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityBlank);
 
-					} else if (processField === "Setup" && startField === "Start") {
+					} else if (reasonField === "" && confirmationField === "R10") { //setup start
 
-						// Create an instance of JSON Model using the Employee data available above.
+					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivitySetupStart);
 
-					} else if (processField === "Setup" && startField === "End") {
+					} else if (reasonField === "N/A" && confirmationField === "R40") { //setup end
 
-						// Create an instance of JSON Model using the Employee data available above.
+					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivitySetupEnd);
 
-					} else if (processField === "Processing" && startField === "Partial") {
+					} else if (reasonField === "0000" && confirmationField === "B20") { //Processing partial
 
-						// Create an instance of JSON Model using the Employee data available above.
+					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessPartial);
 
-					} else if (processField === "Processing" && startField === "Interrupt") {
+					} else if (reasonField === "N/A" && confirmationField === "B30") { //Process interrupt
 
-						// Create an instance of JSON Model using the Employee data available above.
+					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessInterrupt);
 
-					} else if (processField === "Processing" && startField === "End") {
+					} else if (reasonField === "" && confirmationField === "B40") { //process finish
 
 					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessEnd);
+						
+						MessageBox.error("Production order already finished.No further activity can be posted");
+
+					} 
+					else if (reasonField === "" && confirmationField === "B10") { //process start blank
+
+					
+						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessStartBlank);
+
+					} 
+					else if (reasonField === "" && confirmationField === "B20") { //process partial blank
+
+					
+						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessPartialBlank);
 
 					} 
 
@@ -350,6 +398,8 @@ sap.ui.define([
 				var i = sap.ui.getCore().byId("idOrder1").getValue(); //Production order
 				var s = sap.ui.getCore().byId("idOper1").getValue(); //Operation
 				var r = sap.ui.getCore().byId("DropDown").getSelectedKey(); //Confirmation type
+			//	sap.ui.getCore().byId("DropDown")._getSelectedItemText();//Confirmation type
+				//sap.ui.getCore().byId("DropDown").getSelectedKey(); //Confirmation type
 			 	var d = sap.ui.getCore().byId("idDate1").getValue();//Date
 				var logTime = sap.ui.getCore().byId("idTime1").getValue();
 				var logtime1= (logTime.replace(":", ""));
