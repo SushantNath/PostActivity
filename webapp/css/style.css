@@ -1,4 +1,4 @@
-/*.ColInput  .sapMInputBaseInner{
+.ColInput  .sapMInputBaseInner{
 height:1.7rem;
 
 font-family:segoe ui Regular!important;
@@ -19,8 +19,12 @@ text-shadow:none!important;
 padding:0 0.75rem;
 background:rgba(255, 255, 255)!important;
 color:#3f3f3f;
-} */
+} 
 
+.blockWidth{
+	
+	width: 80rem;
+}
 
 .sapUiBody {
     width: 100%;
@@ -33,6 +37,10 @@ color:#3f3f3f;
 .style {
     width: fit-content;
 }
+
+.sapUiBlockLayoutSizeM:not(.sapUiBlockLayoutKeepFontSize) .sapUiBlockCellContent {
+    padding: 1rem 1rem;
+    font-size: 0.875rem;
 
 /*.backgroundColor5 {
    border: 1px solid #286eb4;
