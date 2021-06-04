@@ -5,33 +5,9 @@
 	
 
 	
-	
-	<!--	<l:BlockLayout id="BlockLayout">
-			<l:BlockLayoutRow accentCells="Accent2">
-				<l:BlockLayoutCell id="Accent2" class="blockWidth" width="1">
-					<Label id="idLType1" design="Bold" width="60%" text="Confirmation Type" class="sapUiTinyMarginBegin ColLabel"/>
-					<ComboBox id="DropDown" width="30%" change=".changeConfirmation"/>
-					<Label id="idLNumber1" design="Bold" width="60%" text="Number of Operators" class="sapUiTinyMarginBegin ColLabel"/>
-					<Input id="idNumber1" width="30%" class="ColInput" editable="true" enabled="false"/>
-					<Label id="idLReason1" design="Bold" width="60%" text="Reason for Deviation" class="sapUiTinyMarginBegin ColLabel"/>
-					<Input id="idReason1" width="30%" class="ColInput" placeholder="{i18n>Select}" valueHelpRequest="onReasonF4" change="onReasonF4Change"
-						showValueHelp="true" value="{GET_REASONModel>/Aufnr}" enabled="false"/>
-					<Label id="idLDate1" design="Bold" width="60%" text="Date" class="sapUiTinyMarginBegin ColLabel" required="true"/>
-					<DatePicker id="idDate1" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd.MM.yyyy" class="sapUiSmallMarginBottom"/>
-					<Label id="idLTime1" design="Bold" width="60%" text="Time" class="sapUiTinyMarginBegin ColLabel" required="true"/>
-					<TimePicker id="idTime1" width="30%" valueFormat="HH:mm:ss" displayFormat="HH:mm:ss" class="sapUiSmallMarginBottom"/>
-				
-				</l:BlockLayoutCell>
-			
-				<l:BlockLayoutCell >
-				<Label width="60%" design="Bold" text="Comments" class="sapUiSmallMarginBegin ColLabel"/>
-					<TextArea id="commentsText" value=" " rows="4"/>
-				</l:BlockLayoutCell>
-			</l:BlockLayoutRow>
-		</l:BlockLayout>-->
-	
 
-		<f:Form id="productionFormId"
+
+		<f:Form id="firstForm"
 			editable="false">
 			<f:title>
 				<core:Title text="Activity confirmation" />
@@ -58,36 +34,68 @@
 					<f:formElements>
 						<f:FormElement label="Production Order">
 							<f:fields>
-								<Input id="idOrder1" width="30%" class="ColInput" editable="false"/>
-									<Label id="idLOper1" design="Bold" width="8rem" text="Operation" class="sapUiTinyMarginBegin ColLabel"/>
-					<Input id="idOper1" width="8rem" class="ColInput" editable="false"/>
+								<Input id="idOrder1" width="60%" class="ColInput" editable="false"/>
+									<Label id="idLOper1" width="8rem" text="Operation" class="sapUiTinyMarginBegin ColLabel"/>
+					<Input id="idOper1" width="80%" class="ColInput" editable="false"/>
 							</f:fields>
 						</f:FormElement>
 						<f:FormElement label="Work Center">
 							<f:fields>
-							<Input id="idWork1" width="30%" class="ColInput" editable="false"/>
+							<Input id="idWork1" width="60%" class="ColInput" editable="false"/>
 								<Input id="idDesc1" class="ColInput" editable="false"/>
 							</f:fields>
 						</f:FormElement>
 						<f:FormElement label="Material">
 							<f:fields>
-							<Input id="idMat1" width="30%" class="ColInput" editable="false"/>
+							<Input id="idMat1" width="60%" class="ColInput" editable="false"/>
 							<Input id="idMatD1" class="ColInput" editable="false"/>
 							</f:fields>
 						</f:FormElement>
 						<f:FormElement label="Last activity confirmation">
 							<f:fields>
-								<Input id="idQact1" width="30%" class="ColInput" editable="false"/>
-							<Input id="idATime1" width="30%" class="ColInput" editable="false"/>
-					<Input id="idAStat1" width="30%" class="ColInput" editable="false"/>
-					<Input id="idAUnit1" width="30%" class="ColInput" editable="false"/>
-						<Label id="idConf" class="ColInput"/>
-					<Label id="idReason" class="ColInput"/>		
+								<Input id="idQact1" width="80%" class="ColInput" editable="false"/>
+							<Input id="idATime1" class="ColInput" editable="false"/>
+					<Input id="idAStat1" class="ColInput" editable="false"/>
+					<Input id="idAUnit1" class="ColInput" editable="false"/>
+					<!--	<Label id="idConf" class="ColInput"/>
+					<Label id="idReason" class="ColInput"/>	-->	
 							</f:fields>
 						</f:FormElement>
 					</f:formElements>
 				</f:FormContainer>
-				<f:FormContainer >
+				
+		
+			</f:formContainers>
+		</f:Form>
+		
+		
+			<f:Form id="secondForm"
+			editable="false">
+			<f:title>
+				<core:Title  />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="4"
+					labelSpanL="3"
+					labelSpanM="4"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="0"
+					emptySpanL="4"
+					emptySpanM="0"
+					emptySpanS="0"
+					columnsXL="2"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="false" />
+					
+			</f:layout>
+			<f:formContainers>
+			
+					
+								
+				<f:FormContainer   >
 					<f:formElements>
 						<f:FormElement label="Confirmation Type">
 							<f:fields>
@@ -116,8 +124,17 @@
 				
 							</f:fields>
 						</f:FormElement>
+						
+						
+							<f:FormElement label="Comments">
+							<f:fields>
+						<TextArea id="commentsText" width="30%" value=" " rows="4"/>
+							</f:fields>
+						</f:FormElement>
+						
 					</f:formElements>
-				</f:FormContainer>
+			
+						</f:FormContainer>
 			</f:formContainers>
 		</f:Form>
 	
