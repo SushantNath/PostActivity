@@ -158,7 +158,7 @@ sap.ui.define([
 	           n = "0030";
 				V = "1000082";
  
-	/*		if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
+		/*	if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
  console.log("passed order number is undefined ");
 
 				n = "0030";
@@ -326,25 +326,25 @@ sap.ui.define([
 		// validation for "reason for deviation" based on "confirmation type"
 		if(confirmType === "End Failure"){
 			sap.ui.getCore().byId("idReason1").setEnabled(true);
-				sap.ui.getCore().byId("idLReason1").setRequired(true);
+			this.reasonMandatory="yes";
 			
 		}
 		else{
 			sap.ui.getCore().byId("idReason1").setEnabled(false);	
-				sap.ui.getCore().byId("idLReason1").setRequired(false);
-			
+				
+				this.reasonMandatory="no";
 		}
 		
 		//Validation for "No. of operators" based on "confirmation type"
 		
 			if(confirmType === "Start Setup" || confirmType === "Start Processing"){
 			sap.ui.getCore().byId("idNumber1").setEnabled(false);
-				sap.ui.getCore().byId("idLNumber1").setRequired(false);
+					this.numberMandatory="yes";
 			
 		}
 		else{
 			sap.ui.getCore().byId("idNumber1").setEnabled(true);
-				sap.ui.getCore().byId("idLNumber1").setRequired(true);
+				this.numberMandatory="no";
 			
 		}
 		//set values to balnk on change of confirmation type
@@ -420,10 +420,12 @@ sap.ui.define([
 				// var l = "";
 			//	var comments = "hello";
 			//	var r = "B20";
+				// this.reasonMandatory="yes";
+			 //   this.numberMandatory="yes";
 				var reasonValue=sap.ui.getCore().byId("idReason1").getValue();
-				var reasonRequire=sap.ui.getCore().byId("idLReason1").getRequired();
+				var reasonRequire=this.reasonMandatory;
 				var operatorValue= sap.ui.getCore().byId("idNumber1").getValue();
-				var operatorRequire = 	sap.ui.getCore().byId("idLNumber1").getRequired();
+				var operatorRequire = 	this.numberMandatory;
 			//	sap.ui.getCore().byId("idLNumber1").setRequired(true);
 				var u = reasonValue;//Reason for deviation
 				
@@ -433,13 +435,15 @@ sap.ui.define([
 					
 				}
 				
-					if(reasonValue==="" && reasonRequire=== true){ //Reason label and field
+					if(reasonValue==="" && reasonRequire=== "yes"){ //Reason label and field
 					MessageBox.error("Please fill in all required fileds to proceed");
+					sap.ui.getCore().byId("idReason1").setValueState(sap.ui.core.ValueState.Error);
 						return;
 				}
 				
-					if(operatorValue==="" && operatorRequire=== true){ //No. of operators
+					if(operatorValue==="" && operatorRequire=== "yes"){ //No. of operators
 					MessageBox.error("Please fill in all required fileds to proceed");
+					sap.ui.getCore().byId("idNumber1").setValueState(sap.ui.core.ValueState.Error);
 						return;
 				}
 		        	if (g > "3" ) {
