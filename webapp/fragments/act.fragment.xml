@@ -3,32 +3,7 @@
 	<Dialog id="idact" class="sapUiPopupWithPadding pageDialog" afterClose="dialogAfterClose1" contentHeight="90%" contentWidth="65%"
 		showHeader="false">
 	
-	<!--	<l:BlockLayout id="BlockLayout2">
-			<l:BlockLayoutRow accentCells="Accent1">
-				<l:BlockLayoutCell id="Accent1" width="1">
-					<Label id="idLOrder1" width="60%" design="Bold" text="Production Order" class="sapUiTinyMarginBegin ColLabel"/>
-					<Input id="idOrder1" width="30%" class="ColInput" editable="false"/>
-					<Label id="idLWork1" width="60%" design="Bold" text="Work Center" class="sapUiTinyMarginBegin ColLabel"/>
-					<Input id="idWork1" width="30%" class="ColInput" editable="false"/>
-					<Label id="idLMat1" width="60%" design="Bold" text="Material" class="sapUiTinyMarginBegin ColLabel"/>
-					<Input id="idMat1" width="30%" class="ColInput" editable="false"/>
-					<Label id="idLQact1" width="60%" design="Bold" text="Last activity confirmation" class="sapUiTinyMarginBegin ColLabel"/>
-					<Input id="idQact1" width="30%" class="ColInput" editable="false"/>
-				</l:BlockLayoutCell>
-			
-				<l:BlockLayoutCell>
-					<Label id="idLOper1" design="Bold" width="8rem" text="Operation" class="sapUiTinyMarginBegin ColLabel"/>
-					<Input id="idOper1" width="8rem" class="ColInput" editable="false"/>
-					<Input id="idDesc1" class="ColInput" editable="false"/>
-					<Input id="idMatD1" class="ColInput" editable="false"/>
-					<Input id="idATime1" width="30%" class="ColInput" editable="false"/>
-					<Input id="idAStat1" width="30%" class="ColInput" editable="false"/>
-					<Input id="idAUnit1" width="30%" class="ColInput" editable="false"/>
-					<Label id="idConf" class="ColInput"/>
-					<Label id="idReason" class="ColInput"/>
-				</l:BlockLayoutCell>
-			</l:BlockLayoutRow>
-		</l:BlockLayout>-->
+
 	
 	
 	<!--	<l:BlockLayout id="BlockLayout">
