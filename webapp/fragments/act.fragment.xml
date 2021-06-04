@@ -53,12 +53,12 @@
 						</f:FormElement>
 						<f:FormElement label="Last activity confirmation">
 							<f:fields>
-								<Input id="idQact1" width="80%" class="ColInput" editable="false"/>
+								<Input id="idQact1" class="ColInput" editable="false"/>
 							<Input id="idATime1" class="ColInput" editable="false"/>
 					<Input id="idAStat1" class="ColInput" editable="false"/>
 					<Input id="idAUnit1" class="ColInput" editable="false"/>
-					<!--	<Label id="idConf" class="ColInput"/>
-					<Label id="idReason" class="ColInput"/>	-->	
+			<!--	<Label id="idConf" class="ColInput"/>
+					<Label id="idReason" class="ColInput"/>-->
 							</f:fields>
 						</f:FormElement>
 					</f:formElements>
@@ -105,22 +105,26 @@
 						<f:FormElement label="Number of Operators">
 							<f:fields>
 							<Input id="idNumber1" width="30%" class="ColInput" editable="true" enabled="false"/>
+						
 							</f:fields>
 						</f:FormElement>
 							<f:FormElement label="Reason for Deviation">
 							<f:fields>
-							<Input id="idReason1" width="30%" class="ColInput" placeholder="{i18n>Select}" valueHelpRequest="onReasonF4" change="onReasonF4Change"
+							<Input id="idReason1" width="30%" class="ColInput"  placeholder="{i18n>Select}" valueHelpRequest="onReasonF4" change="onReasonF4Change"
 						showValueHelp="true" value="{GET_REASONModel>/Aufnr}" enabled="false"/>
+						
 							</f:fields>
 						</f:FormElement>
 							<f:FormElement label="Date">
 							<f:fields>
-							<DatePicker id="idDate1" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd.MM.yyyy" class="sapUiSmallMarginBottom"/>
+							<DatePicker id="idDate1" width="30%" valueFormat="dd.MM.yyyy" displayFormat="dd.MM.yyyy" required="true" class="sapUiSmallMarginBottom"/>
+						
 							</f:fields>
 						</f:FormElement>
 							<f:FormElement label="Time">
 							<f:fields>
-							<TimePicker id="idTime1" width="30%" valueFormat="HH:mm:ss" displayFormat="HH:mm:ss" class="sapUiSmallMarginBottom"/>
+							<TimePicker id="idTime1" width="30%" valueFormat="HH:mm:ss" displayFormat="HH:mm:ss" required="true" class="sapUiSmallMarginBottom"/>
+						
 				
 							</f:fields>
 						</f:FormElement>

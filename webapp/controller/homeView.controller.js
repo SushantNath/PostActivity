@@ -155,8 +155,8 @@ sap.ui.define([
 			var n;
 			var V;
 			var t = this.getView();
-	           n = "0030";
-				V = "1000082";
+	   //        n = "0020";
+				// V = "1002208";
  
 		/*	if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
  console.log("passed order number is undefined ");
@@ -213,8 +213,8 @@ sap.ui.define([
 					sap.ui.getCore().byId("idATime1").setValue(oData.ZactTime);
 					sap.ui.getCore().byId("idAStat1").setValue(oData.ZactPro);
 					sap.ui.getCore().byId("idAUnit1").setValue(oData.ZactStart);
-					sap.ui.getCore().byId("idConf").setText(oData.Satza);
-					sap.ui.getCore().byId("idReason").setText(oData.Grund);
+					/*sap.ui.getCore().byId("idConf").setText(oData.Satza);
+					sap.ui.getCore().byId("idReason").setText(oData.Grund);*/
 					processField = oData.ZactPro;
 					startField = oData.ZactStart;
 					reasonField= oData.Grund;
@@ -227,8 +227,9 @@ sap.ui.define([
 					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessStart);
 
-					} else if (reasonField === "N/A" && confirmationField === "N/A") { //Blank values
-
+					} 
+				//	else if (reasonField === "N/A" && confirmationField === "N/A") { //Blank values
+                     else if (reasonField === "" && confirmationField === "") { //Blank values
 				
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityBlank);
 
@@ -237,8 +238,9 @@ sap.ui.define([
 					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivitySetupStart);
 
-					} else if (reasonField === "N/A" && confirmationField === "R40") { //setup end
-
+					}
+				//	else if (reasonField === "N/A" && confirmationField === "R40") { //setup end
+                     else if (reasonField === "" && confirmationField === "R40") { //setup end
 					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivitySetupEnd);
 
@@ -247,8 +249,9 @@ sap.ui.define([
 					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessPartial);
 
-					} else if (reasonField === "N/A" && confirmationField === "B30") { //Process interrupt
-
+					} 
+				//	else if (reasonField === "N/A" && confirmationField === "B30") { //Process interrupt
+                     	else if (reasonField === "" && confirmationField === "B30") { //Process interrupt
 					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessInterrupt);
 
@@ -324,28 +327,29 @@ sap.ui.define([
 		changeConfirmation: function() {
 		var confirmType	= sap.ui.getCore().byId("DropDown")._getSelectedItemText();
 		// validation for "reason for deviation" based on "confirmation type"
-		if(confirmType === "End Failure"){
+		if(confirmType === "End Setup"){
 			sap.ui.getCore().byId("idReason1").setEnabled(true);
-			this.reasonMandatory="yes";
-			
+		//	this.reasonMandatory="yes";
+				sap.ui.getCore().byId("idReason1").setRequired(true);
 		}
 		else{
 			sap.ui.getCore().byId("idReason1").setEnabled(false);	
+				sap.ui.getCore().byId("idReason1").setRequired(false);
 				
-				this.reasonMandatory="no";
+			//	this.reasonMandatory="no";
 		}
 		
 		//Validation for "No. of operators" based on "confirmation type"
 		
 			if(confirmType === "Start Setup" || confirmType === "Start Processing"){
 			sap.ui.getCore().byId("idNumber1").setEnabled(false);
-					this.numberMandatory="yes";
-			
+				//	this.numberMandatory="yes";
+				sap.ui.getCore().byId("idNumber1").setRequired(false);
 		}
 		else{
 			sap.ui.getCore().byId("idNumber1").setEnabled(true);
-				this.numberMandatory="no";
-			
+			//	this.numberMandatory="no";
+				sap.ui.getCore().byId("idNumber1").setRequired(true);
 		}
 		//set values to balnk on change of confirmation type
 		sap.ui.getCore().byId("idReason1").setValue("");
@@ -397,8 +401,10 @@ sap.ui.define([
 				var t = this;
 				var i = sap.ui.getCore().byId("idOrder1").getValue(); //Production order
 				var s = sap.ui.getCore().byId("idOper1").getValue(); //Operation
-				var r = sap.ui.getCore().byId("DropDown").getSelectedKey(); //Confirmation type
-			//	sap.ui.getCore().byId("DropDown")._getSelectedItemText();//Confirmation type
+			//	var r = sap.ui.getCore().byId("DropDown").getSelectedKey(); //Confirmation type
+			var confValue =	sap.ui.getCore().byId("DropDown")._getSelectedItemText();//Confirmation type
+			//sap.ui.getCore().byId("DropDown")._getSelectedItemText();//Confirmation type
+			var r =	(confValue.replace(" ", "%20"));
 				//sap.ui.getCore().byId("DropDown").getSelectedKey(); //Confirmation type
 			 	var d = sap.ui.getCore().byId("idDate1").getValue();//Date
 				var logTime = sap.ui.getCore().byId("idTime1").getValue();
@@ -423,9 +429,9 @@ sap.ui.define([
 				// this.reasonMandatory="yes";
 			 //   this.numberMandatory="yes";
 				var reasonValue=sap.ui.getCore().byId("idReason1").getValue();
-				var reasonRequire=this.reasonMandatory;
+				var reasonRequire=sap.ui.getCore().byId("idReason1").getRequired();
 				var operatorValue= sap.ui.getCore().byId("idNumber1").getValue();
-				var operatorRequire = 	this.numberMandatory;
+				var operatorRequire = sap.ui.getCore().byId("idNumber1").getRequired();
 			//	sap.ui.getCore().byId("idLNumber1").setRequired(true);
 				var u = reasonValue;//Reason for deviation
 				
@@ -435,15 +441,15 @@ sap.ui.define([
 					
 				}
 				
-					if(reasonValue==="" && reasonRequire=== "yes"){ //Reason label and field
+					if(reasonValue==="" && reasonRequire=== true){ //Reason label and field
 					MessageBox.error("Please fill in all required fileds to proceed");
-					sap.ui.getCore().byId("idReason1").setValueState(sap.ui.core.ValueState.Error);
+				//	sap.ui.getCore().byId("idReason1").setValueState(sap.ui.core.ValueState.Error);
 						return;
 				}
 				
-					if(operatorValue==="" && operatorRequire=== "yes"){ //No. of operators
+					if(operatorValue==="" && operatorRequire=== true){ //No. of operators
 					MessageBox.error("Please fill in all required fileds to proceed");
-					sap.ui.getCore().byId("idNumber1").setValueState(sap.ui.core.ValueState.Error);
+				//	sap.ui.getCore().byId("idNumber1").setValueState(sap.ui.core.ValueState.Error);
 						return;
 				}
 		        	if (g > "3" ) {
