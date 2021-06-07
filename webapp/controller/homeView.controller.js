@@ -156,9 +156,9 @@ sap.ui.define([
 			var V;
 			var t = this.getView();
 	   //        n = "0020";
-				// V = "1002208";
+				// V = "1002255";
  
-		/*	if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
+			if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
  console.log("passed order number is undefined ");
 
 				n = "0030";
@@ -180,7 +180,7 @@ sap.ui.define([
 
 				}
 
-			}  */
+			}  
 
 			var b = this;
 			var p = {};
@@ -260,9 +260,24 @@ sap.ui.define([
 					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessEnd);
 						
-						MessageBox.error("Production order already finished.No further activity can be posted");
+			var errorMessage = "Production order already finished.No further activity can be posted";
+						
+							MessageBox.error(errorMessage, {
+						title: "Message",
+						actions: [sap.m.MessageBox.Action.CLOSE],
+						onClose: function (r) {
+			sap.ushell.Container.getService("CrossApplicationNavigation").toExternal({
+				target: {
+					semanticObject: "ZPTM",
+					action: "display"
+				}
 
-					} 
+			});
+					
+						} 
+
+					} );
+					}
 					else if (reasonField === "" && confirmationField === "B10") { //process start blank
 
 					
@@ -327,7 +342,7 @@ sap.ui.define([
 		changeConfirmation: function() {
 		var confirmType	= sap.ui.getCore().byId("DropDown")._getSelectedItemText();
 		// validation for "reason for deviation" based on "confirmation type"
-		if(confirmType === "End Setup"){
+		if(confirmType === "End Failure"){
 			sap.ui.getCore().byId("idReason1").setEnabled(true);
 		//	this.reasonMandatory="yes";
 				sap.ui.getCore().byId("idReason1").setRequired(true);
