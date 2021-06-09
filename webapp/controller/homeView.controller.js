@@ -155,10 +155,10 @@ sap.ui.define([
 			var n;
 			var V;
 			var t = this.getView();
-	   //        n = "0020";
-				// V = "1002255";
+	           n = "0020";
+				V = "1002256";
  
-			if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
+		/*	if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
  console.log("passed order number is undefined ");
 
 				n = "0030";
@@ -180,7 +180,7 @@ sap.ui.define([
 
 				}
 
-			}  
+			}  */
 
 			var b = this;
 			var p = {};
@@ -284,7 +284,7 @@ sap.ui.define([
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessStartBlank);
 
 					} 
-					else if (reasonField === "" && confirmationField === "B20") { //process partial blank
+					else if (reasonField !== "0000" && confirmationField === "B20") { //process partial blank
 
 					
 						that.oConfirmModel = new sap.ui.model.json.JSONModel(oActivityProcessPartialBlank);
