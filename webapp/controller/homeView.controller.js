@@ -155,10 +155,10 @@ sap.ui.define([
 			var n;
 			var V;
 			var t = this.getView();
-	           n = "0020";
-				V = "1002256";
+	           n = "0010";
+				V = "1002183";
  
-		/*	if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
+	/*		if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
  console.log("passed order number is undefined ");
 
 				n = "0030";
@@ -426,7 +426,11 @@ sap.ui.define([
 				var logtime1= (logTime.replace(":", ""));
 				var o= (logtime1.replace(":", "")); //time
 			 	var g = sap.ui.getCore().byId("idNumber1").getValue(); //Number of operators
-			 	var comments = sap.ui.getCore().byId("commentsText").getValue(); // Comments
+			 	var comments1 = sap.ui.getCore().byId("commentsText").getValue(); // Comments
+			 	var comments2 = (comments1.replace(" ", "%20"));
+			 	var comments3 = (comments2.replace(" ", "%20"));
+			 	var comments = (comments3.replace(" ", "%20"));
+			 	
 			     var n = "";//Yield
 				 var l = "";  //unit
 				// var i = "1000082";
@@ -467,7 +471,7 @@ sap.ui.define([
 				//	sap.ui.getCore().byId("idNumber1").setValueState(sap.ui.core.ValueState.Error);
 						return;
 				}
-		        	if (g > "3" ) {
+		        	if (g > 3 ) {
 						MessageBox.error("The number of operators should be maximum 3. Please check your entry before proceeding");
 						return;
 					}
