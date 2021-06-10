@@ -351,7 +351,7 @@ sap.ui.define([
 			sap.ui.getCore().byId("idReason1").setEnabled(false);	
 				sap.ui.getCore().byId("idReason1").setRequired(false);
 				
-			//	this.reasonMandatory="no";
+		
 		}
 		
 		//Validation for "No. of operators" based on "confirmation type"
