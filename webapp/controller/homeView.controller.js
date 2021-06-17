@@ -154,11 +154,12 @@ sap.ui.define([
 			//      this.getView().setModel(oConfirmModel, "confirmData");
 			var n;
 			var V;
+			var that= this;
 			var t = this.getView();
 	           n = "0010";
 				V = "1002183";
  
-	/*		if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
+			if (ParameterData.startupParameters.orderNumber === undefined && ParameterData.startupParameters.operationNum === undefined){
  console.log("passed order number is undefined ");
 
 				n = "0030";
@@ -168,19 +169,35 @@ sap.ui.define([
  console.log("passed order number is ", ParameterData.startupParameters.orderType);
  console.log("passed operation number is ", ParameterData.startupParameters.operationNum);
 
+			
+			//////////////////////////////
 				if (ParameterData.startupParameters.orderType) {
 
-					V = ParameterData.startupParameters.orderType[0]; // “Getting the Purchase Order Value passed along with the URL
+							V = ParameterData.startupParameters.orderType[0]; // “Getting the Purchase Order Value passed along with the URL
+                            that.orderNumber= V;
+						}
 
-				}
+						if (ParameterData.startupParameters.operationNum) {
 
-				if (ParameterData.startupParameters.operationNum) {
+							n = ParameterData.startupParameters.operationNum[0]; // “Getting the Purchase Order Value passed along with the URL
+                           that.operationNum = n;
+						}
+							if (ParameterData.startupParameters.intOper) {
 
-					n = ParameterData.startupParameters.operationNum[0]; // “Getting the Purchase Order Value passed along with the URL
+						var	intOper = ParameterData.startupParameters.intOper[0]; // “Getting the Purchase Order Value passed along with the URL
+                        that.iOper = intOper;
+						}
+							if (ParameterData.startupParameters.intOperItem) {
 
-				}
+						var	intOperItem = ParameterData.startupParameters.intOperItem[0]; // “Getting the Purchase Order Value passed along with the URL
+                                      that.iOperItem =   intOperItem ;
+						}
 
-			}  */
+					
+				
+			///////////////////////////////	
+
+			}  
 
 			var b = this;
 			var p = {};
@@ -270,7 +287,17 @@ sap.ui.define([
 				target: {
 					semanticObject: "ZPTM",
 					action: "display"
-				}
+				},
+				
+					params: {
+						"orderType": t.orderNumber,
+						"operationNum": t.operationNum,
+						"mode": "crossNavigation",
+							"intOper": t.iOper,
+								"intOperItem":  t.iOperItem
+						
+
+					}
 
 			});
 					
@@ -324,6 +351,7 @@ sap.ui.define([
 
 		// code for pop up close and cross navigation
 		closeDialog: function(e) {
+			var t=this;
 			if (this._oDialog1) {
 				this._oDialog1.close();
 			}
@@ -332,7 +360,16 @@ sap.ui.define([
 				target: {
 					semanticObject: "ZPTM",
 					action: "display"
-				}
+				},
+					params: {
+						"orderType": t.orderNumber,
+						"operationNum": t.operationNum,
+						"mode": "crossNavigation",
+							"intOper": t.iOper,
+								"intOperItem":  t.iOperItem
+						
+
+					}
 
 			});
 
@@ -433,19 +470,7 @@ sap.ui.define([
 			 	
 			     var n = "";//Yield
 				 var l = "";  //unit
-				// var i = "1000082";
-				// var s ="0030";
-			//	var d = "31.05.2021";
-				// var logTime = "16:00:10";
-				// var logtime1= (logTime.replace(":", ""));
-				// var o= (logtime1.replace(":", ""));
-			//	var g = "1";
-			//	var u= "";
-				// 	var n = "";
-				// var l = "";
-			//	var comments = "hello";
-			//	var r = "B20";
-				// this.reasonMandatory="yes";
+			
 			 //   this.numberMandatory="yes";
 				var reasonValue=sap.ui.getCore().byId("idReason1").getValue();
 				var reasonRequire=sap.ui.getCore().byId("idReason1").getRequired();
@@ -471,7 +496,7 @@ sap.ui.define([
 				//	sap.ui.getCore().byId("idNumber1").setValueState(sap.ui.core.ValueState.Error);
 						return;
 				}
-		        	if (g > 3 ) {
+		        	if (g > 3 || g > "3") {
 						MessageBox.error("The number of operators should be maximum 3. Please check your entry before proceeding");
 						return;
 					}
@@ -501,7 +526,16 @@ sap.ui.define([
 				target: {
 					semanticObject: "ZPTM",
 					action: "display"
-				}
+				},
+					params: {
+						"orderType": t.orderNumber,
+						"operationNum": t.operationNum,
+						"mode": "crossNavigation",
+							"intOper": t.iOper,
+								"intOperItem":  t.iOperItem
+						
+
+					}
 
 			});
 					
