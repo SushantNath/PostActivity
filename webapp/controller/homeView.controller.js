@@ -66,6 +66,11 @@ sap.ui.define([
 					 
 						actId: "B20",
 						activityDes: "End Failure"
+					},
+					{
+					 
+						actId: "B40",
+						activityDes: "End Processing"
 					}
 
 				]
