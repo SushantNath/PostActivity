@@ -66,10 +66,6 @@ sap.ui.define([
 
 						actId: "B20",
 						activityDes: "End Failure"
-					}, {
-
-						actId: "B40",
-						activityDes: "End Processing"
 					}
 
 				]
@@ -86,6 +82,11 @@ sap.ui.define([
 
 						actId: "B30",
 						activityDes: "Interrupt Processing"
+					},
+					{
+
+						actId: "B40",
+						activityDes: "End Processing"
 					}
 
 				]
@@ -145,11 +146,7 @@ sap.ui.define([
 			};
 
 			this.oModel = this.getOwnerComponent().getModel();
-			//	var e = sap.ui.core.UIComponent.getRouterFor(this);
-			//	e.getRoute("RouteView1").attachMatched(this._onRouteFound, this);
-
-			// var oConfirmModel = new sap.ui.model.json.JSONModel(jQuery.sap.getModulePath("com.sap.activityConfirmation", "/Data.json"));
-			//      this.getView().setModel(oConfirmModel, "confirmData");
+		
 			var n;
 			var V;
 			var that = this;
@@ -281,11 +278,11 @@ sap.ui.define([
 									},
 
 									params: {
-										"orderType": t.orderNumber,
-										"operationNum": t.operationNum,
+										"orderType": that.orderNumber,
+										"operationNum": that.operationNum,
 										"mode": "crossNavigation",
-										"intOper": t.iOper,
-										"intOperItem": t.iOperItem
+										"intOper": that.iOper,
+										"intOperItem": that.iOperItem
 
 									}
 

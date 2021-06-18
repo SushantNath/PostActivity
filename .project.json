@@ -35,12 +35,12 @@
     "blockPushLevel": "Error"
   },
   "build": {
-    "buildRequired": true,
+    "buildRequired": false,
     "sourceFolder": "webapp",
     "targetFolder": "dist",
     "excludedFolders": [],
     "excludedFiles": [],
-    "lastBuildDateTime": "Fri, 18 Jun 2021 06:12:26 GMT"
+    "lastBuildDateTime": "Fri, 18 Jun 2021 12:38:55 GMT"
   },
   "deploy": {
     "destination": "DE4",
